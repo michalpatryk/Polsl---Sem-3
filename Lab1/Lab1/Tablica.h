@@ -7,7 +7,7 @@ class Tablica
 public:
 	Tablica(int dl = 0);
 	Tablica(Tablica &w_);
-	Tablica(float *x, float *y, int dl);
+	Tablica(float *x, float *y, int dl);//inicjalizacja listami x* i y*
 
 	~Tablica();
 	void dodaj(Tablica &w_);
@@ -28,5 +28,9 @@ inline Tablica::Tablica(Tablica & w_)
 
 inline Tablica::Tablica(float * x, float * y, int dl)
 {
-
+	int i = 0;
+	while ((x + 1) != nullptr && (y + 1) != nullptr)
+	{
+		w[i] = new Punkt(x, y);
+	}
 }
