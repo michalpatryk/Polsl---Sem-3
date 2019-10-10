@@ -9,8 +9,9 @@ public:
 	Tablica(Tablica &w_);
 	Tablica(float *x, float *y, int dl);//inicjalizacja listami x* i y*
 
-	//~Tablica();
-	//void dodaj(Tablica &w_);
+	~Tablica() { delete[] w; }
+
+	void dodaj(Tablica &w_);
 	//bool porownaj(Tablica &w);
 
 };
@@ -27,8 +28,13 @@ Tablica::Tablica(int dl)
 
 inline Tablica::Tablica(Tablica & w_)
 {
-	w = w_.w;
-	dl = w_.dl;
+	this->dl = w_.dl;
+	w = new Punkt[dl];
+	for (int i = 0; i < dl; i++)
+	{
+		w[i] = Punkt{ w_.w[i] };
+	}
+	
 }
 
 inline Tablica::Tablica(float * x, float * y, int dl)
@@ -40,3 +46,21 @@ inline Tablica::Tablica(float * x, float * y, int dl)
 		w[i] = Punkt{ x[i],y[i] };
 	}
 }
+
+void Tablica::dodaj(Tablica & w_)
+{
+	Punkt* temp = new Punkt[dl];	//zapisanie zawartosci starej
+	for (int i = 0; i < dl; i++) { temp[i] = w[i]; }
+	delete[] w;	//usuniecie
+	dl += w_.dl;	//zmiana dl
+	w = new Punkt[dl];
+	for (int i = 0; i < dl - w_.dl; i++) //zapisanie poprzedniej wartosci tablicy
+	{
+		w[i] = Punkt{ temp[i] };
+	}
+	for (int i = 0; i < w_.dl; i++) //dopisanie zawartosci drugiej tablicy
+	{
+		w[i + w_.dl ] = Punkt{ w_.w[i] };
+	}
+}
+
