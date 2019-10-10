@@ -1,0 +1,37 @@
+﻿Zadanie c++ (PK3 lab 1)
+Dana jest klasa:
+class Punkt
+  {
+      float x
+      float y;
+    public:
+      Punkt(Punkt &p);
+      Punkt(float x_=0,float y_=0);
+      dodaj(Punkt &p);//dodaje do siebie współrzędne punktu p (dodawanie wektorów w przestrzeni 2d )
+      dodaj(Punkt *p);
+      drukuj();// drukuje swoje współrzędne
+ 
+  };
+ 
+1. Dla klasy zdefiniować konstruktory i metody: dodaj oraz drukuj.
+Napisać funkcje main która sprawdza powyższe metody dla obiektów stworzonych statycznie i dynamicznie.
+ 
+ 
+Dana jest klasa :
+class Tablica
+{
+    Punkt * w;
+    int dl; // dlugość Tablicy
+  public:
+    Tablica( int dl=0); // tworzy Tablice o zadanej długości i wypełnia punktami (0,0)
+    Tablica(Tablica &w_); //inicjalizacja za pomocą Tablicy w_
+    Tablica(float *x, float *y, dl); // inicjalizacja tablicy  punktów  tablicami x -ów i y -ów
+ 
+    ~Tablica();
+ 
+    dodaj(Tablica &w_);// dodaje do siebie Tablice w_
+ 
+    bool porownaj(&w);// porownnaie z Tablica w_;
+};
+ 
+2. Zaimplementować powyższe metody i sprawdzić w funkcji main

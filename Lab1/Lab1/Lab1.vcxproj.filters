@@ -27,4 +27,9 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Task.txt">
+      <Filter>Pliki źródłowe</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
