@@ -18,10 +18,12 @@ public:
 Tablica::Tablica(int dl)
 {
 	this->dl = dl;
+	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++)
 	{
-		w = new Punkt{ 0,0 };
+		w[i] = Punkt{ 0,0 };
 	}
+	auto temp = w+1;
 }
 
 inline Tablica::Tablica(Tablica & w_)
@@ -40,12 +42,5 @@ inline Tablica::Tablica(float * x, float * y, int dl)
 	}
 	auto temp = w + 1;
 	auto temp2 = w + 2;
-	/*Punkt *temp = w;
-	for (int i = 0; i < dl; i++)
-	{
-		w = new Punkt{ x[i], y[i] };
-		w++;
-	}
-	w = temp;*/
 
 }

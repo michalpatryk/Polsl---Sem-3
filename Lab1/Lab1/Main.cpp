@@ -24,7 +24,7 @@ int main(void) {
 	delete p3;
 	delete p4;
 
-	Tablica tab{ 2 };
+	Tablica tab{ 5 };
 
 	float x[10] = { 1,2,3,4,5,6,7,8,9,10 };
 	float y[10] = { 10,9,8,7,6,5,4,3,2,1 };
