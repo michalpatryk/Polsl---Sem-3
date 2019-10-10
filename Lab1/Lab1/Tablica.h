@@ -23,7 +23,6 @@ Tablica::Tablica(int dl)
 	{
 		w[i] = Punkt{ 0,0 };
 	}
-	auto temp = w+1;
 }
 
 inline Tablica::Tablica(Tablica & w_)
@@ -40,7 +39,4 @@ inline Tablica::Tablica(float * x, float * y, int dl)
 	{
 		w[i] = Punkt{ x[i],y[i] };
 	}
-	auto temp = w + 1;
-	auto temp2 = w + 2;
-
 }
