@@ -32,9 +32,9 @@ int main(void) {
 	Tablica tab3{ tab2 };
 	//----------//	Test funkcji Tablica::dodaj(Tablica tab)
 	tab2.dodaj(tab3);
-	//----------//
+	//----------//	Test funkcji Tablica::porownaj(Tablica& w_), powinna zwrocic 0
 	std::cout << tab2.porownaj(tab3) << std::endl;
-	//----------//
+	//----------//	Test funkcji Tablica::porownaj(Tablica& w_), powinna zwrocic 1
 	Tablica tab4{ tab3 };
 	std::cout << tab3.porownaj(tab4) << std::endl;
 	std::string end;	//Blokada natychmiastowego wyłączenia okna.
