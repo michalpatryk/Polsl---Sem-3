@@ -70,9 +70,9 @@ bool Tablica::porownaj(Tablica & w_)
 	{
 		for (int i = 0; i < dl; i++)
 		{
-		//	if (this->w[i].drukuj() != w_.w[i].drukuj()) return false;
-
+			if (this->w[i].drukuj() != w_.w[i].drukuj()) return false;
 		}
+		return true;
 	}
 	else return false;
 }
