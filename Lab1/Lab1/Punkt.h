@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 class Punkt {
 	float x;
 	float y;
@@ -7,7 +8,7 @@ public:
 	Punkt(float x_ = 0, float y_ = 0);
 	void dodaj(Punkt &p);
 	void dodaj(Punkt *p);
-	void drukuj();
+	std::string drukuj();
 };
 
 Punkt::Punkt(Punkt & p)
@@ -34,8 +35,10 @@ void Punkt::dodaj(Punkt * p)
 	y += p->y;
 }
 
-void Punkt::drukuj()
+std::string Punkt::drukuj()
 {
-	std::cout << "Dane punktu:" << x << ", " << y << std::endl;
+	std::string output;
+	output = "Dane punktu:" + std::to_string(x) + "," + std::to_string(y) + "\n";
+	return  output;
 }
 

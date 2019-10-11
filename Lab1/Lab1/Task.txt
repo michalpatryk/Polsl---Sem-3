@@ -31,7 +31,7 @@ class Tablica
  
     dodaj(Tablica &w_);// dodaje do siebie Tablice w_
  
-    bool porownaj(&w);// porownnaie z Tablica w_;
+    bool porownaj(&w_);// porownnaie z Tablica w_;
 };
  
 2. Zaimplementować powyższe metody i sprawdzić w funkcji main

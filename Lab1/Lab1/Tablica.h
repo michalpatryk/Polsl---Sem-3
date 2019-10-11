@@ -12,7 +12,7 @@ public:
 	~Tablica() { delete[] w; }
 
 	void dodaj(Tablica &w_);
-	//bool porownaj(Tablica &w);
+	bool porownaj(Tablica &w_);
 
 };
 
@@ -62,5 +62,18 @@ void Tablica::dodaj(Tablica & w_)
 	{
 		w[i + w_.dl ] = Punkt{ w_.w[i] };
 	}
+}
+
+bool Tablica::porownaj(Tablica & w_)
+{
+	if (dl == w_.dl)
+	{
+		for (int i = 0; i < dl; i++)
+		{
+		//	if (this->w[i].drukuj() != w_.w[i].drukuj()) return false;
+
+		}
+	}
+	else return false;
 }
 
