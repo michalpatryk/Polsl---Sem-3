@@ -45,7 +45,7 @@ std::string Punkt::drukuj()
 	return  output;
 }
 
-//std::ostream& operator<<(std::ostream& os, const Punkt& p) {
-	//os << p.drukuj();
-	//return os;
-//}
+std::ostream& operator<<(std::ostream& os, Punkt& p) {
+	os << p.drukuj();
+	return os;
+}
