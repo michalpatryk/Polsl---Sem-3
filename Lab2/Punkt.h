@@ -27,6 +27,7 @@ public:
 		returner.y = y + p.y;
 		return returner;
 	}
+	friend std::ostream& operator<<(std::ostream& os, const Punkt& p);
 };
 
 Punkt::Punkt(Punkt & p)
@@ -58,3 +59,7 @@ void Punkt::drukuj()
 	std::cout << "Dane punktu:" << x << ", " << y << std::endl;
 }
 
+std::ostream& operator<<(std::ostream& os, const Punkt& p) {
+	//os << p.drukuj();
+	//return os;
+}
