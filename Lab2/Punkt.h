@@ -18,20 +18,20 @@ public:
 		x += p->x; y += p->y;
 	}
 	std::string drukuj();
-	Punkt operator+=(Punkt &p) {
+	Punkt operator+=(Punkt const &p) {
 		x += p.x;
 		y += p.y;
 	};
-	Punkt operator=(Punkt &p) {
+	Punkt operator=(Punkt const &p) {
 		x = p.x;
 		y = p.y;
 		return *this;
 	}
-	bool operator==(Punkt &p) {
+	bool operator==(Punkt const &p) {
 		if (x == p.x && y == p.y) return true;
 		else return false;
 	}
-	Punkt operator+ (Punkt &p) {
+	Punkt operator+ (Punkt const &p) {
 		Punkt returner;
 		returner.x = x + p.x;
 		returner.y = y + p.y;
