@@ -28,6 +28,12 @@ int main() {
 	else if (tab2 == tab3) {
 		std::cout << "tab2 == tab3" <<std::endl;
 	}
+	tab = tab2;
+	if (tab == tab2) {
+		std::cout << "After tab = tab2, tab == tab2" << std::endl;
+	}
+
+	std::cout << tab;
 
 	return 0;
 }

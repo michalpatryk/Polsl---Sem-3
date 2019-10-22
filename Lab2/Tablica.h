@@ -16,6 +16,7 @@ public:
 	Tablica operator=(const Tablica &w_);
 	bool operator==(const Tablica &w_);
 
+	friend std::ostream& operator<<(std::ostream& os, Tablica& w_);
 };
 
 Tablica::Tablica(int dl)
@@ -107,5 +108,12 @@ inline bool Tablica::operator==(const Tablica & w_)
 		return true;
 	}
 	else return false;
+}
+
+std::ostream& operator<<(std::ostream& os, Tablica &w_) {
+	for (int i = 0; i < w_.dl; i++) {
+		os << "Numer punktu: "<<i<<" "<<w_.w[i];
+	}
+	return os;
 }
 
