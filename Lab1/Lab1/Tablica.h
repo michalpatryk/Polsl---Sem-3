@@ -15,22 +15,23 @@ public:
 
 };
 
-Tablica::Tablica(int dl)
-{
-	w = new Punkt(0);
-}
-
-inline Tablica::Tablica(Tablica & w_)
-{
-	w = w_.w;
-	dl = w_.dl;
-}
-
-inline Tablica::Tablica(float * x, float * y, int dl)
-{
-	int i = 0;
-	while ((x + 1) != nullptr && (y + 1) != nullptr)
-	{
-		w[i] = new Punkt(x, y);
-	}
-}
+//Tablica::Tablica(int dl)
+//{
+//	w = new Punkt(0);
+//}
+//
+//inline Tablica::Tablica(Tablica & w_)
+//{
+//	w = w_.w;
+//	dl = w_.dl;
+//}
+//
+//inline Tablica::Tablica(float * x, float * y, int dl)
+//{
+//	int i = 0;
+//	while ((x + 1) != nullptr && (y + 1) != nullptr)
+//	{
+//		//Punkt *temp = new Punkt(*x, *y);
+//
+//	}
+//}

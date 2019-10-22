@@ -1,9 +1,6 @@
 #include <iostream>
 #include "Punkt.h"
-//123
-
-
-
+#include "Tablica.h"
 
 int main(void) {
 	//Punkt p1(5, 10);
@@ -25,6 +22,8 @@ int main(void) {
 
 	//delete p3;
 	//delete p4;
+
+	Tablica pusta();
 	return 0;
 }
 
