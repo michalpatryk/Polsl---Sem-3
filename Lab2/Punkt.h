@@ -21,6 +21,12 @@ public:
 		if (x == p.x && y == p.y) return true;
 		else return false;
 	}
+	Punkt operator+ (Punkt &p) {
+		Punkt returner;
+		returner.x = x + p.x;
+		returner.y = y + p.y;
+		return returner;
+	}
 };
 
 Punkt::Punkt(Punkt & p)
