@@ -15,8 +15,9 @@ public:
 	bool porownaj(Tablica &w_);
 	Tablica operator=(const Tablica &w_);
 	bool operator==(const Tablica &w_);
-
 	friend std::ostream& operator<<(std::ostream& os, Tablica& w_);
+	Tablica operator+=(const Tablica &w_);
+	Punkt & operator[](const int poz);
 };
 
 Tablica::Tablica(int dl)
@@ -108,6 +109,34 @@ inline bool Tablica::operator==(const Tablica & w_)
 		return true;
 	}
 	else return false;
+}
+
+inline Tablica Tablica::operator+=(const Tablica & w_)
+{
+	Punkt* temp = new Punkt[dl];	//zapisanie zawartosci starej
+	for (int i = 0; i < dl; i++) { temp[i] = w[i]; }
+	delete[] w;	//usuniecie
+	dl += w_.dl;	//zmiana dl
+	w = new Punkt[dl];
+	for (int i = 0; i < dl - w_.dl; i++) //zapisanie poprzedniej wartosci tablicy
+	{
+		Punkt *tempPkt = new Punkt{ temp[i] };
+		w[i] = *tempPkt;
+	}
+	for (int i = 0; i < w_.dl; i++) //dopisanie zawartosci drugiej tablicy
+	{
+		Punkt *tempPkt = new Punkt{ w_.w[i] };
+		w[i + w_.dl] = *tempPkt;
+	}
+
+	return *this;
+}
+
+Punkt & Tablica::operator[](const int poz)
+{
+	Punkt *temp = new Punkt {};
+	*temp = this->w[poz];
+	return *temp;
 }
 
 std::ostream& operator<<(std::ostream& os, Tablica &w_) {
