@@ -4,11 +4,19 @@ class Punkt {
 	float x;
 	float y;
 public:
-	Punkt(Punkt &p);
-	Punkt(float x_ = 0, float y_ = 0);
-	void dodaj(Punkt &p);
-	void dodaj(Punkt *p);
-	void drukuj();
+	Punkt(Punkt &p) {
+		x = p.x; y = p.y;
+	}
+	Punkt(float x_ = 0, float y_ = 0) {
+		x = x_; y = y_;
+	}
+	void dodaj(Punkt &p) {
+		x += p.x; y += p.y;
+	}
+	void dodaj(Punkt *p) {
+		x += p->x; y += p->y;
+	}
+	std::string drukuj();
 	Punkt operator+=(Punkt &p) {
 		x += p.x;
 		y += p.y;
@@ -27,39 +35,15 @@ public:
 		returner.y = y + p.y;
 		return returner;
 	}
-	friend std::ostream& operator<<(std::ostream& os, const Punkt& p);
+	//friend std::ostream& operator<<(std::ostream& os, const Punkt& p);
 };
-
-Punkt::Punkt(Punkt & p)
+std::string Punkt::drukuj()
 {
-	x = p.x;
-	y = p.y;
+	std::string output = "Dane punktu:" + std::to_string(x) + "," + std::to_string(y) + "\n";
+	return  output;
 }
 
-Punkt::Punkt(float x_, float y_)
-{
-	x = x_;
-	y = y_;
-}
-
-void Punkt::dodaj(Punkt & p)
-{
-	x += p.x;
-	y += p.y;
-}
-
-void Punkt::dodaj(Punkt * p)
-{
-	x += p->x;
-	y += p->y;
-}
-
-void Punkt::drukuj()
-{
-	std::cout << "Dane punktu:" << x << ", " << y << std::endl;
-}
-
-std::ostream& operator<<(std::ostream& os, const Punkt& p) {
+//std::ostream& operator<<(std::ostream& os, const Punkt& p) {
 	//os << p.drukuj();
 	//return os;
-}
+//}
