@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 class Punkt {
 	float x;
 	float y;
