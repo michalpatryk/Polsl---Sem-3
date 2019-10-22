@@ -15,7 +15,19 @@ int main() {
 	{
 		std::cout << "p3 == p1" << std::endl;
 	}
+	//testowanie tablicy
+	Tablica tab{ 5 };
+	float x[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	float y[10] = { 10,9,8,7,6,5,4,3,2,1 };
+	Tablica tab2{ x,y,10 };
+	Tablica tab3{ x, y, 10 };
 
+	if (tab == tab2) {
+		std::cout << "tab1 == tab2" << std::endl;
+	}
+	else if (tab2 == tab3) {
+		std::cout << "tab2 == tab3" <<std::endl;
+	}
 
 	return 0;
 }

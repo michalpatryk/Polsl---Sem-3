@@ -13,6 +13,8 @@ public:
 
 	void dodaj(Tablica &w_);
 	bool porownaj(Tablica &w_);
+	Tablica operator=(const Tablica &w_);
+	bool operator==(const Tablica &w_);
 
 };
 
@@ -70,6 +72,31 @@ void Tablica::dodaj(Tablica & w_)
 }
 
 bool Tablica::porownaj(Tablica & w_)
+{
+	if (dl == w_.dl)
+	{
+		for (int i = 0; i < dl; i++)
+		{
+			if (this->w[i].drukuj() != w_.w[i].drukuj()) return false;
+		}
+		return true;
+	}
+	else return false;
+}
+//---------------------------------------Lab2---------------------------------------//
+inline Tablica Tablica::operator=(const Tablica & w_)
+{
+	this->dl = w_.dl;
+	w = new Punkt[dl];
+	for (int i = 0; i < dl; i++)
+	{
+		Punkt *temp = new Punkt{ w_.w[i] };
+		w[i] = *temp;
+	}
+	return *this;
+}
+
+inline bool Tablica::operator==(const Tablica & w_)
 {
 	if (dl == w_.dl)
 	{
