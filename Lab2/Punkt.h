@@ -9,6 +9,18 @@ public:
 	void dodaj(Punkt &p);
 	void dodaj(Punkt *p);
 	void drukuj();
+	Punkt operator+=(Punkt &p) {
+		x += p.x;
+		y += p.y;
+	};
+	Punkt operator=(Punkt &p) {
+		x = p.x;
+		y = p.y;
+	}
+	bool operator==(Punkt &p) {
+		if (x == p.x && y == p.y) return true;
+		else return false;
+	}
 };
 
 Punkt::Punkt(Punkt & p)
