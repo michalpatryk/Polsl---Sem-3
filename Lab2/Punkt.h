@@ -21,8 +21,9 @@ public:
 	Punkt operator+=(Punkt const &p) {
 		x += p.x;
 		y += p.y;
+		return *this;
 	};
-	Punkt operator=(Punkt const &p) {
+	Punkt &operator=(Punkt const &p) {
 		x = p.x;
 		y = p.y;
 		return *this;
@@ -37,7 +38,7 @@ public:
 		returner.y = y + p.y;
 		return returner;
 	}
-	//friend std::ostream& operator<<(std::ostream& os, const Punkt& p);
+	friend std::ostream& operator<<(std::ostream& os, Punkt& p);
 };
 std::string Punkt::drukuj()
 {
