@@ -22,10 +22,11 @@ public:
 		x += p.x;
 		y += p.y;
 	};
-	/*Punkt operator=(Punkt &p) {
+	Punkt operator=(Punkt &p) {
 		x = p.x;
 		y = p.y;
-	}*/
+		return *this;
+	}
 	bool operator==(Punkt &p) {
 		if (x == p.x && y == p.y) return true;
 		else return false;
