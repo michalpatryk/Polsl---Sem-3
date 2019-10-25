@@ -11,7 +11,7 @@ public:
 
 	~Tablica() { delete[] w; }
 
-	void dodaj(Tablica &w_);
+	void dodaj(const Tablica &w_);
 	bool porownaj(Tablica &w_);
 	Tablica operator=(const Tablica &w_);
 	bool operator==(const Tablica &w_);
@@ -54,7 +54,7 @@ inline Tablica::Tablica(float * x, float * y, int dl)
 	}
 }
 
-void Tablica::dodaj(Tablica & w_)
+void Tablica::dodaj(const Tablica & w_)
 {
 	Punkt* temp = new Punkt[dl];	//zapisanie zawartosci starej
 	for (int i = 0; i < dl; i++) { temp[i] = w[i]; }
@@ -113,22 +113,7 @@ inline bool Tablica::operator==(const Tablica & w_)
 
 inline Tablica Tablica::operator+=(const Tablica & w_)
 {
-	Punkt* temp = new Punkt[dl];	//zapisanie zawartosci starej
-	for (int i = 0; i < dl; i++) { temp[i] = w[i]; }
-	delete[] w;	//usuniecie
-	dl += w_.dl;	//zmiana dl
-	w = new Punkt[dl];
-	for (int i = 0; i < dl - w_.dl; i++) //zapisanie poprzedniej wartosci tablicy
-	{
-		Punkt *tempPkt = new Punkt{ temp[i] };
-		w[i] = *tempPkt;
-	}
-	for (int i = 0; i < w_.dl; i++) //dopisanie zawartosci drugiej tablicy
-	{
-		Punkt *tempPkt = new Punkt{ w_.w[i] };
-		w[i + w_.dl] = *tempPkt;
-	}
-
+	this->dodaj(w_);
 	return *this;
 }
 

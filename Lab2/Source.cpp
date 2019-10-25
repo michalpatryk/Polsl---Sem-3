@@ -37,5 +37,8 @@ int main() {
 
 	std::cout << tab[2];	//testowanie operatora []
 
+	tab += tab2;
+	std::cout << tab;
+
 	return 0;
 }

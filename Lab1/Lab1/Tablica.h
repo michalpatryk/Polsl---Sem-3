@@ -18,6 +18,7 @@ public:
 
 Tablica::Tablica(int dl)
 {
+	if (dl < 0) dl = 0;	//zabezpieczenie przed błędami w następnych funkcjach
 	this->dl = dl;
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++)
