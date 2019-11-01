@@ -26,8 +26,7 @@ Tablica::Tablica(int dl)
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++)
 	{
-		Punkt *temp = new Punkt{ 0.0 };
-		w[i] = *temp;
+		w[i] = new Punkt{ 0.0 };
 	}
 }
 
@@ -37,8 +36,7 @@ inline Tablica::Tablica(Tablica & w_)
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++)
 	{
-		Punkt *temp = new Punkt{ w_.w[i] };
-		w[i] = *temp;
+		w[i] = new Punkt{ w_.w[i] };
 	}
 
 }
@@ -49,8 +47,7 @@ inline Tablica::Tablica(float * x, float * y, int dl)
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++)
 	{
-		Punkt *temp = new Punkt{ x[i],y[i] };
-		w[i] = *temp;
+		w[i] = new Punkt{ x[i],y[i] };
 	}
 }
 
@@ -63,14 +60,11 @@ void Tablica::dodaj(const Tablica & w_)
 	w = new Punkt[dl];
 	for (int i = 0; i < dl - w_.dl; i++) //zapisanie poprzedniej wartosci tablicy
 	{
-		//Punkt *tempPkt = new Punkt{ temp[i] };
-		//w[i] = *tempPkt;
 		w[i] = new Punkt{ temp[i] };
 	}
 	for (int i = 0; i < w_.dl; i++) //dopisanie zawartosci drugiej tablicy
 	{
-		Punkt *tempPkt = new Punkt{ w_.w[i] };
-		w[i + w_.dl] = *tempPkt;
+		w[i + w_.dl] = new Punkt{ w_.w[i] };
 	}
 }
 
@@ -93,8 +87,7 @@ inline Tablica Tablica::operator=(const Tablica & w_)
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++)
 	{
-		Punkt *temp = new Punkt{ w_.w[i] };
-		w[i] = *temp;
+		w[i] = new Punkt{ w_.w[i] };
 	}
 	return *this;
 }
