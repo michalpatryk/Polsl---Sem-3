@@ -6,7 +6,7 @@ class Tablica
 	int dl;
 public:
 	Tablica(int dl = 0);// tworzy Tablice o zadanej d³ugoœci i wype³nia punktami (0,0)
-	Tablica(Tablica &w_);
+	Tablica(const Tablica &w_);
 	Tablica(float *x, float *y, int dl);//inicjalizacja listami x* i y*
 
 	~Tablica() { delete[] w; }
@@ -15,7 +15,7 @@ public:
 	bool porownaj(Tablica &w_);
 	Tablica operator=(const Tablica &w_);
 	bool operator==(const Tablica &w_);
-	friend std::ostream& operator<<(std::ostream& os, Tablica& w_);
+	friend std::ostream& operator<<(std::ostream& os, const Tablica& w_);
 	Tablica operator+=(const Tablica &w_);
 	Punkt & operator[](const int poz);
 };
@@ -30,7 +30,7 @@ Tablica::Tablica(int dl)
 	}
 }
 
-inline Tablica::Tablica(Tablica & w_)
+inline Tablica::Tablica(const Tablica & w_)
 {
 	this->dl = w_.dl;
 	w = new Punkt[dl];
@@ -83,6 +83,8 @@ bool Tablica::porownaj(Tablica & w_)
 //---------------------------------------Lab2---------------------------------------//
 inline Tablica Tablica::operator=(const Tablica & w_)
 {
+	//std::cout << w_;
+	//return Tablica{ w_ };
 	this->dl = w_.dl;
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++)
@@ -118,7 +120,7 @@ Punkt & Tablica::operator[](const int poz)
 	return *temp;
 }
 
-std::ostream& operator<<(std::ostream& os, Tablica &w_) {
+std::ostream& operator<<(std::ostream& os, const Tablica &w_) {
 	for (int i = 0; i < w_.dl; i++) {
 		os << "Numer punktu: "<<i<<" "<<w_.w[i];
 	}

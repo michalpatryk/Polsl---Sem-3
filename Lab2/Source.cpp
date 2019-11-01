@@ -39,6 +39,6 @@ int main() {
 
 	tab += tab2;
 	std::cout << tab;
-
+	system("PAUSE");
 	return 0;
 }
