@@ -33,7 +33,7 @@ int main() {
 		std::cout << "After tab = tab2, tab == tab2" << std::endl;
 	}
 
-	std::cout << tab <<std::endl;	//testowanie operatora <<
+	std::cout << tab << "Testing []" <<std::endl;	//testowanie operatora <<
 
 	std::cout << tab[2];	//testowanie operatora []
 

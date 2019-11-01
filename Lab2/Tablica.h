@@ -83,8 +83,6 @@ bool Tablica::porownaj(Tablica & w_)
 //---------------------------------------Lab2---------------------------------------//
 inline Tablica Tablica::operator=(const Tablica & w_)
 {
-	//std::cout << w_;
-	//return Tablica{ w_ };
 	this->dl = w_.dl;
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++)
