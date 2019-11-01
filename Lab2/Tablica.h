@@ -1,5 +1,8 @@
 #pragma once
 #include "Punkt.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 class Tablica
 {
 	Punkt *w;
@@ -8,6 +11,7 @@ public:
 	Tablica(int dl = 0);// tworzy Tablice o zadanej d³ugoœci i wype³nia punktami (0,0)
 	Tablica(const Tablica &w_);
 	Tablica(float *x, float *y, int dl);//inicjalizacja listami x* i y*
+	Tablica(std::ifstream& file);
 
 	~Tablica() { delete[] w; }
 
@@ -50,6 +54,26 @@ inline Tablica::Tablica(float * x, float * y, int dl)
 		w[i] = new Punkt{ x[i],y[i] };
 	}
 }
+
+inline Tablica::Tablica(std::ifstream & file)
+{
+	if (file) {
+		try {
+			file >> dl;
+			w = new Punkt[dl];
+			for (int i = 0; i < dl; i++) {
+				float x;
+				float y;
+				file >> x >> y;
+				w[i] = Punkt{ x,y };
+			}
+		}
+		catch(const std::exception& e) {
+			std::cout << "Error reading from file" << e.what() <<"\n\n\n";
+		}
+	}
+}
+
 
 void Tablica::dodaj(const Tablica & w_)
 {

@@ -22,13 +22,13 @@ int main() {
 	Tablica tab2{ x,y,10 };
 	Tablica tab3{ x, y, 10 };
 
-	if (tab == tab2) {	//testowanie operaotra ==
+	if (tab == tab2) {	//testowanie operatora ==
 		std::cout << "tab1 == tab2" << std::endl;
 	}
 	else if (tab2 == tab3) {
 		std::cout << "tab2 == tab3" <<std::endl;
 	}
-	tab = tab2;	//testowanie operatorwa =
+	tab = tab2;	//testowanie operatora =
 	if (tab == tab2) {
 		std::cout << "After tab = tab2, tab == tab2" << std::endl;
 	}
@@ -38,7 +38,7 @@ int main() {
 	std::cout << tab[2];	//testowanie operatora []
 
 	tab += tab2;
-	std::cout << tab;
+	std::cout << "Testing +=\n" << tab;
 	system("PAUSE");
 	return 0;
 }
