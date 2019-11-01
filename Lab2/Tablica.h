@@ -63,8 +63,9 @@ void Tablica::dodaj(const Tablica & w_)
 	w = new Punkt[dl];
 	for (int i = 0; i < dl - w_.dl; i++) //zapisanie poprzedniej wartosci tablicy
 	{
-		Punkt *tempPkt = new Punkt{ temp[i] };
-		w[i] = *tempPkt;
+		//Punkt *tempPkt = new Punkt{ temp[i] };
+		//w[i] = *tempPkt;
+		w[i] = new Punkt{ temp[i] };
 	}
 	for (int i = 0; i < w_.dl; i++) //dopisanie zawartosci drugiej tablicy
 	{

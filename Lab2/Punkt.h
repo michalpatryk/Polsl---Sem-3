@@ -28,6 +28,11 @@ public:
 		y = p.y;
 		return *this;
 	}
+	Punkt &operator=(Punkt const *p) {
+		x = p->x;
+		y = p->y;
+		return *this;
+	}
 	bool operator==(Punkt const &p) {
 		if (x == p.x && y == p.y) return true;
 		else return false;
