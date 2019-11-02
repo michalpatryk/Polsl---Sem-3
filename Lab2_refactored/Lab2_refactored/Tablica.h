@@ -6,7 +6,7 @@ class Tablica
 	int dl;
 public:
 	Tablica(int dl = 0);
-
+	Tablica(const Tablica &w_);
 	~Tablica() { delete[] w; };
 };
 

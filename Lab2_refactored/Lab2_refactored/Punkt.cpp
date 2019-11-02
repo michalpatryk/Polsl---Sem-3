@@ -1,28 +1,28 @@
 #include "Punkt.h"
-Punkt & Punkt::operator+=(Punkt const & p)
+Punkt & Punkt::operator+=(const Punkt & p)
 {
 	x += p.x;
 	y += p.y;
 	return *this;
 }
-Punkt & Punkt::operator=(Punkt const & p)
+Punkt & Punkt::operator=(const Punkt & p)
 {
 	x = p.x;
 	y = p.y;
 	return *this;
 }
-Punkt & Punkt::operator=(Punkt const * p)
+Punkt & Punkt::operator=(const Punkt * p)
 {
 	x = p->x;
 	y = p->y;
 	return *this;
 }
-bool Punkt::operator==(Punkt const & p)
+bool Punkt::operator==(const Punkt & p)
 {
 	if (x == p.x && y == p.y) return true;
 	else return false;
 }
-Punkt Punkt::operator+(Punkt const & p)
+Punkt Punkt::operator+(const Punkt & p)
 {
 	return Punkt{ x + p.x, y + p.y };
 }
