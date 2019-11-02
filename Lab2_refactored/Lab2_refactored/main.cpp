@@ -28,6 +28,7 @@ int main()
 		Tablica t2{ x, y, 10 };
 		Tablica t3{ y, y, 10 };
 		t3.dodaj(t2);
+		t3.dodaj(t2);
 		t3.drukuj();
 
 		std::cout << "Testing if t1 == t2" << std::endl;
@@ -42,7 +43,9 @@ int main()
 
 		std::cout << t1;
 		std::cout << t1[2];
-	//	t1 += t3;
+		Tablica t4{ 3 };
+		Tablica t5{ x, x, 10 };
+		//t4 += t5;
 
 	}
 	_CrtDumpMemoryLeaks();	//sprawdzanie wycieków pamięci

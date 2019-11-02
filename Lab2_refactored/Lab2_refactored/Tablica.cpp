@@ -45,20 +45,20 @@ Tablica::Tablica(std::ifstream & file)
 	}
 }
 
+
 void Tablica::dodaj(const Tablica & w_)
 {
-	Punkt* temp = new Punkt[dl];
-	for (int i = 0; i < dl; i++) { temp[i] = w[i]; }
-	delete[] w;
+	Punkt *temp = w;
+	int old_dl = dl;
 	dl += w_.dl;
 	w = new Punkt[dl];
-	for (int i = 0; i < dl - w_.dl; i++) { //zapisanie poprzedniej wartosci tablicy
-		w[i] = Punkt{ temp[i] };
-	}
-	for (int i = 0; i < w_.dl; i++) { //dopisanie zawartosci drugiej tablicy
-		w[i + w_.dl] = Punkt{ w_.w[i] };
+	for (int i = 0; i < old_dl; i++) {
+		w[i] = temp[i];
 	}
 	delete[] temp;
+	for (int i = 0; i < w_.dl; i++) {
+		w[old_dl + i] = w_.w[i];
+	}
 }
 
 void Tablica::drukuj()
@@ -92,12 +92,7 @@ Tablica & Tablica::operator=(const Tablica & w_)
 	return *this;
 }
 
-Tablica Tablica::operator+=(const Tablica & w_)
-{
-	Tablica temp{ *this };
-	temp.dodaj(w_);
-	return temp;
-}
+
 
 std::ostream & operator<<(std::ostream & os, const Tablica & w_)
 {
