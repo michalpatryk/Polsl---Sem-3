@@ -7,6 +7,16 @@ class Tablica
 public:
 	Tablica(int dl = 0);
 	Tablica(const Tablica &w_);
-	~Tablica() { delete[] w; };
+	Tablica(float *x, float *y, int dl);
+
+	~Tablica() {
+		/*for (int i = 0; i < dl; i++) {
+			delete w[i];
+		}*/
+		delete[] w;
+		//for (int i = 0; i < dl; i++) {
+		//	delete w[i];
+		//}
+	};
 };
 

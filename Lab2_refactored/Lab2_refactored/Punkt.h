@@ -8,6 +8,7 @@ public:
 	//Constructors
 	Punkt(Punkt const &p) :x(p.x), y(p.y) { }
 	Punkt(float x_ = 0, float y_ = 0) :x(x_), y(y_) { }
+	//~Punkt() { x = null; }
 	//Functions
 	void dodaj(const Punkt &p)	{ x += p.x; y += p.y; }
 	void dodaj(const Punkt *p)	{ x += p->x; y += p->y; }
