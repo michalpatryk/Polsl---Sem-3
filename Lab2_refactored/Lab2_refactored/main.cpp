@@ -27,6 +27,7 @@ int main()
 		float y[10] = { 10,9,8,7,6,5,4,3,2,1 };
 		Tablica t2{ x, y, 10 };
 		Tablica t3{ y, y, 10 };
+		t3.dodaj(t2);
 	}
 	_CrtDumpMemoryLeaks();	//sprawdzanie wycieków pamięci
 	return 0;

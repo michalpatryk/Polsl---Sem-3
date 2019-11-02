@@ -26,3 +26,40 @@ Tablica::Tablica(float * x, float * y, int dl) :dl(dl)
 	}
 }
 
+Tablica::Tablica(std::ifstream & file)
+{
+	if (file) {
+		try {
+			file >> dl;
+			w = new Punkt[dl];
+			for (int i = 0; i < dl; i++) {
+				float x;
+				float y;
+				file >> x >> y;
+				w[i] = Punkt{ x,y };
+			}
+		}
+		catch (const std::exception& e) {
+			std::cout << "Error reading from file" << e.what() << "\n\n\n";
+		}
+	}
+}
+
+void Tablica::dodaj(const Tablica & w_)
+{
+	Punkt* temp = new Punkt[dl];
+	for (int i = 0; i < dl; i++) { temp[i] = w[i]; }
+	delete[] w;
+	dl += w_.dl;
+	w = new Punkt[dl];
+	for (int i = 0; i < dl - w_.dl; i++) //zapisanie poprzedniej wartosci tablicy
+	{
+		w[i] = Punkt{ temp[i] };
+	}
+	for (int i = 0; i < w_.dl; i++) //dopisanie zawartosci drugiej tablicy
+	{
+		w[i + w_.dl] = Punkt{ w_.w[i] };
+	}
+	delete[] temp;
+}
+
