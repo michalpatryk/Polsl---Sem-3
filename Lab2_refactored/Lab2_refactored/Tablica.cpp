@@ -1,5 +1,5 @@
 #include "Tablica.h"
-
+#include <iomanip>
 
 
 Tablica::Tablica(int dl) :dl(dl)
@@ -52,14 +52,21 @@ void Tablica::dodaj(const Tablica & w_)
 	delete[] w;
 	dl += w_.dl;
 	w = new Punkt[dl];
-	for (int i = 0; i < dl - w_.dl; i++) //zapisanie poprzedniej wartosci tablicy
-	{
+	for (int i = 0; i < dl - w_.dl; i++) { //zapisanie poprzedniej wartosci tablicy
 		w[i] = Punkt{ temp[i] };
 	}
-	for (int i = 0; i < w_.dl; i++) //dopisanie zawartosci drugiej tablicy
-	{
+	for (int i = 0; i < w_.dl; i++) { //dopisanie zawartosci drugiej tablicy
 		w[i + w_.dl] = Punkt{ w_.w[i] };
 	}
 	delete[] temp;
+}
+
+void Tablica::drukuj()
+{
+	std::cout << "Tablica: \n " << std::endl;
+	for (int i = 0; i < dl; i++){
+		std::cout << std::setw((int)ceil(log10(dl))) << i << ". ";	//wyrownanie
+		w[i].drukuj();
+	}
 }
 

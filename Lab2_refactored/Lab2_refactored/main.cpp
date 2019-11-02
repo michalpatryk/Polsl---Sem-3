@@ -28,6 +28,10 @@ int main()
 		Tablica t2{ x, y, 10 };
 		Tablica t3{ y, y, 10 };
 		t3.dodaj(t2);
+		t3.drukuj();
+		Tablica t4{ 0 };
+		t4.drukuj();
+		t4.drukuj();
 	}
 	_CrtDumpMemoryLeaks();	//sprawdzanie wycieków pamięci
 	return 0;

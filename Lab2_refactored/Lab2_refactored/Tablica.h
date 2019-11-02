@@ -15,6 +15,7 @@ public:
 	~Tablica() { delete[] w; };
 	//Functions
 	void dodaj(const Tablica &w_);
+	void drukuj();
 
 };
 

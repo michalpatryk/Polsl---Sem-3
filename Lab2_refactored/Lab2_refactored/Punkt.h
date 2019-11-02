@@ -19,6 +19,5 @@ public:
 	bool operator==(const Punkt &p);
 	Punkt operator+ (const Punkt &p);
 	friend std::ostream& operator<<(std::ostream& os, Punkt& p);
-	~Punkt();
 };
 
