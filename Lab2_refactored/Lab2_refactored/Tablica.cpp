@@ -63,10 +63,47 @@ void Tablica::dodaj(const Tablica & w_)
 
 void Tablica::drukuj()
 {
-	std::cout << "Tablica: \n " << std::endl;
+	std::cout << "Tablica: \n";
 	for (int i = 0; i < dl; i++){
 		std::cout << std::setw((int)ceil(log10(dl))) << i << ". ";	//wyrownanie
 		w[i].drukuj();
 	}
 }
 
+bool Tablica::porownaj(const Tablica & w_)
+{
+	if (dl == w_.dl){
+		for (int i = 0; i < dl; i++){
+			if (!(this->w[i] == w_.w[i])) return false;
+		}
+		return true;
+	}
+	else return false;
+}
+
+Tablica & Tablica::operator=(const Tablica & w_)
+{
+	dl = w_.dl;
+	delete[] w;
+	w = new Punkt[dl];
+	for (int i = 0; i < dl; i++) {
+		w[i] = Punkt{ w_.w[i] };
+	}
+	return *this;
+}
+
+Tablica Tablica::operator+=(const Tablica & w_)
+{
+	Tablica temp{ *this };
+	temp.dodaj(w_);
+	return temp;
+}
+
+std::ostream & operator<<(std::ostream & os, const Tablica & w_)
+{
+	os << "Tablica: \n";
+	for (int i = 0; i < w_.dl; i++) {
+		os << std::setw((int)ceil(log10(w_.dl))) << i << ". " << w_.w[i] <<std::endl;	//wyrownanie
+	}
+	return os;
+}

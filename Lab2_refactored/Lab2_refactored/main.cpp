@@ -29,9 +29,21 @@ int main()
 		Tablica t3{ y, y, 10 };
 		t3.dodaj(t2);
 		t3.drukuj();
-		Tablica t4{ 0 };
-		t4.drukuj();
-		t4.drukuj();
+
+		std::cout << "Testing if t1 == t2" << std::endl;
+		if (t1 == t2) {
+			std::cout << "t1 == t2" << std::endl;
+		}
+		t1 = t2;
+		int tester = t1 == t2;
+		if (t1 == t2) {
+			std::cout << "After t1 = t2, t1 == t2" << std::endl;
+		}
+
+		std::cout << t1;
+		std::cout << t1[2];
+	//	t1 += t3;
+
 	}
 	_CrtDumpMemoryLeaks();	//sprawdzanie wycieków pamięci
 	return 0;
