@@ -32,6 +32,6 @@ Punkt::~Punkt()
 
 std::ostream & operator<<(std::ostream & os, Punkt & p)
 {
-	os << "X: "<< p.x << " Y: " << p.y << std::endl;
+	os << "X: "<< p.x << " Y: " << p.y;
 	return os;
 }
