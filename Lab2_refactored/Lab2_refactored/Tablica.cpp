@@ -10,7 +10,3 @@ Tablica::Tablica(int dl)
 		w[i] = new Punkt{ 0.0 };
 	}
 }
-
-Tablica::~Tablica()
-{
-}

@@ -1,5 +1,10 @@
+﻿#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
 #include <iostream>
 #include "Punkt.h"
+#include "tablica.h"
 
 int main()
 {
@@ -15,5 +20,9 @@ int main()
 	std::cout << "p2: " << p2 << std::endl;
 	if (p1 == p2) std::cout << "p1 == p2" << std::endl;	//==
 	//Testowanie Tablica
+	{	//Indentacja pozwala na automatyczne wywołanie destruktorów obiektu Tablica
+		Tablica t1{};
+	}
+	_CrtDumpMemoryLeaks();	//sprawdzanie wycieków pamięci
 	return 0;
 }
