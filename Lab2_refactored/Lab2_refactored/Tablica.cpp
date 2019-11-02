@@ -92,6 +92,12 @@ Tablica & Tablica::operator=(const Tablica & w_)
 	return *this;
 }
 
+Tablica & Tablica::operator+=(const Tablica & w_)
+{
+	this->dodaj(w_);
+	return *this;
+}
+
 
 
 std::ostream & operator<<(std::ostream & os, const Tablica & w_)

@@ -45,7 +45,7 @@ int main()
 		std::cout << t1[2];
 		Tablica t4{ 3 };
 		Tablica t5{ x, x, 10 };
-		//t4 += t5;
+		t4 += t5;
 
 	}
 	_CrtDumpMemoryLeaks();	//sprawdzanie wycieków pamięci
