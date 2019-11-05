@@ -24,6 +24,9 @@
     <ClCompile Include="Punkt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Wektor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Punkt.h">
@@ -32,5 +35,13 @@
     <ClInclude Include="Tablica.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Wektor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Task.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 #include <iostream>
 class Punkt
 {
+protected:
 	float x, y;
 public:
 	//Constructors

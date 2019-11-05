@@ -1,0 +1,6 @@
+Napisaæ klasê Wektor, która dziedziczy z klasy Punkt (æw. 1) . 
+Klasa Wektor ma dodatkowe pola: dlugosc (sqrt(x*x+y*y)) oraz kierunek (k¹t równy atan(y/x)). 
+Zaimplementowaæ odpowiednie konstruktory. Przedefiniowaæ metody i operator ==. Napisaæ klasê TablicaWektorów . 
+Zaimplementowaæ klasê TabWektorowSort, która dziedziczy z klasy TablicaWektorów i przechowuje wektory posortowane wg. d³ugoœci . 
+Napisaæ metodê wstaw(Wektor &), która wstawia wektor w sposób uporz¹dkowany. 
+Przedefiniowaæ operator = (klasa TabWektorowSort) tak aby  wstawia³ obiekty Wektor na odpowiednie miejsca (nie koniecznie na i-t¹ pozycjê) .
