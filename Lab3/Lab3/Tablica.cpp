@@ -1,32 +1,32 @@
 #include "Tablica.h"
 #include <iomanip>
 
-
-Tablica::Tablica(int dl) :dl(dl)
+template <class T>
+Tablica<T>::Tablica(int dl) :dl(dl)
 {
-	w = new Punkt[dl];
+	w = new T[dl];
 	for (int i = 0; i < dl; i++){
-		w[i] = Punkt{ 0.0 };
+		w[i] = T{ 0.0 };
 	}
 }
-
-Tablica::Tablica(const Tablica & w_) :dl(w_.dl)
+template <class T>
+Tablica<T>::Tablica(const Tablica & w_) :dl(w_.dl)
 {
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++){
 		w[i] = Punkt{ w_.w[i] };
 	}
 }
-
-Tablica::Tablica(float * x, float * y, int dl) :dl(dl)
+template <class T>
+Tablica<T>::Tablica(float * x, float * y, int dl) :dl(dl)
 {
 	w = new Punkt[dl];
 	for (int i = 0; i < dl; i++){
 		w[i] = Punkt{ x[i],y[i] };
 	}
 }
-
-Tablica::Tablica(std::ifstream & file)
+template <class T>
+Tablica<T>::Tablica(std::ifstream & file)
 {
 	if (file) {
 		try {
@@ -45,8 +45,8 @@ Tablica::Tablica(std::ifstream & file)
 	}
 }
 
-
-void Tablica::dodaj(const Tablica & w_)
+template <class T>
+void Tablica<T>::dodaj(const Tablica & w_)
 {
 	Punkt *temp = w;
 	int old_dl = dl;
@@ -60,8 +60,8 @@ void Tablica::dodaj(const Tablica & w_)
 		w[old_dl + i] = w_.w[i];
 	}
 }
-
-void Tablica::drukuj()
+template <class T>
+void Tablica<T>::drukuj()
 {
 	std::cout << "Tablica: \n";
 	for (int i = 0; i < dl; i++){
@@ -69,8 +69,8 @@ void Tablica::drukuj()
 		w[i].drukuj();
 	}
 }
-
-bool Tablica::porownaj(const Tablica & w_)
+template <class T>
+bool Tablica<T>::porownaj(const Tablica & w_)
 {
 	if (dl == w_.dl){
 		for (int i = 0; i < dl; i++){
@@ -80,8 +80,8 @@ bool Tablica::porownaj(const Tablica & w_)
 	}
 	else return false;
 }
-
-Tablica & Tablica::operator=(const Tablica & w_)
+template <class T>
+Tablica<T> & Tablica<T>::operator=(const Tablica & w_)
 {
 	dl = w_.dl;
 	delete[] w;
@@ -91,16 +91,16 @@ Tablica & Tablica::operator=(const Tablica & w_)
 	}
 	return *this;
 }
-
-Tablica & Tablica::operator+=(const Tablica & w_)
+template <class T>
+Tablica<T> & Tablica<T>::operator+=(const Tablica & w_)
 {
 	this->dodaj(w_);
 	return *this;
 }
 
 
-
-std::ostream & operator<<(std::ostream & os, const Tablica & w_)
+template <class T>
+std::ostream & operator<<(std::ostream & os, const Tablica<T> & w_)
 {
 	os << "Tablica: \n";
 	for (int i = 0; i < w_.dl; i++) {
