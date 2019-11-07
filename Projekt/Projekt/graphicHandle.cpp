@@ -12,9 +12,6 @@ void sfmlINIT()
 void sfmlMAIN(Board board)
 {
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Chess");
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-	sf::RectangleShape rectangle(sf::Vector2f(100.f, 100.f));
 	while (window.isOpen())
 	{
 		sf::Event event;

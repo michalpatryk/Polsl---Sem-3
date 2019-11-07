@@ -4,7 +4,7 @@
 
 class Board
 {
-	Piece list[8][8];
+	Piece *pieces;
 public:
 	Board();
 	

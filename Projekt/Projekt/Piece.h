@@ -1,7 +1,8 @@
 #pragma once
+enum class Color { black = 0, white = 1 };
 class Piece
 {
-	enum color { black = 0, white = 1 };
+	Color color;
 public:
 	int x, y;	//xy coord
 	Piece();
