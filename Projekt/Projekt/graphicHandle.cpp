@@ -1,5 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "graphicHandle.h"
+#include "Board.h"
+
 #define HEIGHT 1000
 #define WIDTH 1000
 void sfmlINIT()
@@ -7,7 +9,7 @@ void sfmlINIT()
 
 }
 
-void sfmlMAIN()
+void sfmlMAIN(Board board)
 {
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Chess");
 	sf::CircleShape shape(100.f);
@@ -23,8 +25,7 @@ void sfmlMAIN()
 		}
 
 		window.clear();
-		window.draw(shape);
-		window.draw(rectangle);
+		board.draw(window);
 		window.display();
 	}
 }

@@ -6,7 +6,8 @@
 #define WIDTH 800
 int main() 
 {
-	sfmlMAIN();
+	Board board;
+	sfmlMAIN(board);
 	
 
 	std::cout << "Test";

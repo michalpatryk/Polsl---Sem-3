@@ -4,6 +4,7 @@
 
 Piece::Piece()
 {
+
 }
 
 
