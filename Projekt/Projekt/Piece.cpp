@@ -1,6 +1,6 @@
 #include "Piece.h"
 #include <string>
-
+#include <iostream>
 
 
 Piece::Piece()
@@ -16,6 +16,12 @@ Piece::~Piece()
 {
 }
 
+Piece Piece::operator=(const Piece & piece_)
+{
+	Piece returner{ piece_.color, piece_.coord.x, piece_.coord.y, piece_.piece };
+	return returner;
+}
+
 void Piece::draw(sf::RenderWindow & window, PieceType piece_)
 {
 
@@ -27,4 +33,9 @@ void Piece::draw(sf::RenderWindow & window, PieceType piece_)
 	sf::Texture texture;
 	std::string filename = "";
 
+}
+
+void Piece::debug()
+{
+	std::cout << "Testing" <<std::endl;
 }
