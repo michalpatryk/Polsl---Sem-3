@@ -2,8 +2,8 @@
 #include "graphicHandle.h"
 #include "Board.h"
 
-#define HEIGHT 1000
-#define WIDTH 1000
+#define HEIGHT 800
+#define WIDTH 800
 void sfmlINIT()
 {
 

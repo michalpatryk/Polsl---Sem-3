@@ -4,7 +4,7 @@
 
 Board::Board()
 {
-
+	//pieces = { Piece{Color::black, 100, 100, PieceType::Rook} };
 }
 
 
@@ -34,10 +34,10 @@ void Board::draw(sf::RenderWindow & window)
 	sf::Vector2u pos = wsize;
 	wsize.x *= 0.8;
 	wsize.y *= 0.8;
-	int length = wsize.x / 8;
-	int posx = pos.x*0.1;
-	int posy = pos.y*0.1;
-	int offset = posx;
+	int length = static_cast<int>(wsize.x / 8);
+	int posx = static_cast<int>(pos.x*0.1);
+	int posy = static_cast<int>(pos.y*0.1);
+	int offset = static_cast<int>(posx);
 
 
 	for (int i = 0; i < 8; i++) {
