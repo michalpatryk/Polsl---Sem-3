@@ -1,10 +1,12 @@
 #include "Board.h"
-
+#include "Rook.h"
 
 
 Board::Board()
 {
-	//pieces = { Piece{Color::black, 100, 100, PieceType::Rook} };
+	
+	//pieces[0][0] = new Piece{ Color::black, 100, 100, PieceType::Rook };
+	pieces[0][0] = new Rook{ Color::black, 1, 1, PieceType::Rook };
 }
 
 
