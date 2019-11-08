@@ -54,13 +54,17 @@ void Piece::getSprite()
 	sf::Texture texture;
 	std::string filename = Piece::getColorFilename();
 	filename += getPieceFilename();
-	if (!texture.loadFromFile(filename))
-	{
+	if (!texture.loadFromFile(filename)){
 		std::cout << "Error loading texture";
+		this->texture.create(200, 200);
+		this->sprite.setTexture(this->texture);
 	}
-	else std::cout << "Texture loaded :D";
-	this->texture = texture;
-	this->sprite.setTexture(this->texture);
+	else {
+		this->texture = texture;
+		this->sprite.setTexture(this->texture);
+	}
+	//else std::cout << "Texture loaded :D";
+	
 }
 
 void Piece::debug()

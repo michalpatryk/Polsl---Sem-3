@@ -88,6 +88,6 @@ void Board::draw(sf::RenderWindow & window)
 		posy += length;
 	}
 
-	pieces[0][2]->draw(window);
+	pieces[0][4]->draw(window);
 
 }

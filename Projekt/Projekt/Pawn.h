@@ -5,8 +5,9 @@ class Pawn :
 {
 	PieceType piece = PieceType::Pawn;	//PAWN IS NOT CONSTANT - intentional, u can upgrade it
 public:
-	Pawn(Color color_, int x_, int y_) : Piece(color_, x_, y_) { };
+	Pawn(Color color_, int x_, int y_) : Piece(color_, x_, y_) { getSprite(); };
 	~Pawn();
 	void debug();
+	std::string getPieceFilename() { return "/Pawn.png"; };
 };
 
