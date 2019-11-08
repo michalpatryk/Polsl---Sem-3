@@ -5,9 +5,9 @@ class Bishop :
 {
 	const PieceType piece = PieceType::Bishop;
 public:
-	Bishop(Color color_, int x_, int y_) : Piece(color_, x_, y_) { sprite = getSprite(); };
+	Bishop(Color color_, int x_, int y_) : Piece(color_, x_, y_) { getSprite(); };
 	~Bishop();
-	sf::Sprite& getSprite();
+	void getSprite();
 	void debug();
 };
 

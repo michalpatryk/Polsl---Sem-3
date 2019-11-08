@@ -24,9 +24,7 @@ public:
 
 
 	void draw(sf::RenderWindow & window);
-	virtual  sf::Sprite& getSprite() { 
-		sf::Sprite sprite; 
-		return sprite;
+	virtual  void getSprite() { 
 	};
 	virtual void debug();
 };
