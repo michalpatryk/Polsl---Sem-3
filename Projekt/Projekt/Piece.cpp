@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-std::string Piece::getFilename()
+std::string Piece::getColorFilename()
 {
 	std::string filename = "../Pieces_Images";
 	if (color == Color::white) {
@@ -46,6 +46,21 @@ void Piece::draw(sf::RenderWindow & window)
 	sprite.setScale(targetSize);*/
 	window.draw(sprite);
 
+}
+
+void Piece::getSprite()
+{
+	sf::Context context;	//required to work, ohterwise throws a lot of OpenGl errors. Windowless window.
+	sf::Texture texture;
+	std::string filename = Piece::getColorFilename();
+	filename += getPieceFilename();
+	if (!texture.loadFromFile(filename))
+	{
+		std::cout << "Error loading texture";
+	}
+	else std::cout << "Texture loaded :D";
+	this->texture = texture;
+	this->sprite.setTexture(this->texture);
 }
 
 void Piece::debug()

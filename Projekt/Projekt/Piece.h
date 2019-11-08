@@ -9,7 +9,8 @@ class Piece
 
 protected:
 	Color color;
-	std::string getFilename();
+	std::string getColorFilename();
+	virtual std::string getPieceFilename() { return ""; };
 public:
 	Coord coord;
 	sf::Sprite sprite;
@@ -24,8 +25,8 @@ public:
 
 
 	void draw(sf::RenderWindow & window);
-	virtual  void getSprite() { 
-	};
+	void getSprite();
 	virtual void debug();
+	
 };
 
