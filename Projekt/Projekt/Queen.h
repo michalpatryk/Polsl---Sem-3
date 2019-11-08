@@ -3,8 +3,9 @@
 class Queen :
 	public Piece
 {
+	const PieceType piece = PieceType::Queen;
 public:
-	Queen(Color color_, int x_, int y_, PieceType piece_) : Piece(color_, x_, y_, piece_) { };
+	Queen(Color color_, int x_, int y_) : Piece(color_, x_, y_) { };
 	~Queen();
 	void debug();
 };

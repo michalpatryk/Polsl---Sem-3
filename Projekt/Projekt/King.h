@@ -3,8 +3,9 @@
 class King :
 	public Piece
 {
+	const PieceType piece = PieceType::King;
 public:
-	King(Color color_, int x_, int y_, PieceType piece_) : Piece(color_, x_, y_, piece_) { };
+	King(Color color_, int x_, int y_) : Piece(color_, x_, y_) { };
 	~King();
 	void debug();
 };

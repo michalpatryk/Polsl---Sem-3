@@ -3,8 +3,9 @@
 class Rook :
 	public Piece
 {
+	const PieceType piece = PieceType::Rook;
 public:
-	Rook(Color color_, int x_, int y_, PieceType piece_) : Piece(color_, x_, y_, piece_) { };
+	Rook(Color color_, int x_, int y_) : Piece(color_, x_, y_) { };
 	~Rook();
 	void debug();
 };

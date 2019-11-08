@@ -6,7 +6,6 @@
 Piece::Piece()
 {
 	color = Color::zero;
-	piece = PieceType::none;
 	coord.x = 0;
 	coord.y = 0;
 }
@@ -18,7 +17,7 @@ Piece::~Piece()
 
 Piece Piece::operator=(const Piece & piece_)
 {
-	Piece returner{ piece_.color, piece_.coord.x, piece_.coord.y, piece_.piece };
+	Piece returner{ piece_.color, piece_.coord.x, piece_.coord.y};
 	return returner;
 }
 

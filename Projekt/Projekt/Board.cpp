@@ -12,21 +12,29 @@ Board::Board()
 	//[wiersz][kolumna]
 	//[0][0] - lewy gorny rog
 
-	pieces[0][0] = new Rook{ Color::black, 1, 1, PieceType::Rook };
-	pieces[0][1] = new Knight{ Color::black, 1, 2, PieceType::Knight };
-	pieces[0][2] = new Bishop{ Color::black, 1, 3, PieceType::Bishop };
-	pieces[0][3] = new Queen{ Color::black, 1, 4, PieceType::Queen };
-	pieces[0][4] = new King{ Color::black, 1, 5, PieceType::King };
-	pieces[0][5] = new Bishop{ Color::black, 1, 6, PieceType::Bishop };
-	pieces[0][6] = new Knight{ Color::black, 1, 7, PieceType::Knight };
-	pieces[0][7] = new Rook{ Color::black, 1, 8, PieceType::Rook };
-	for (int i = 0; i < 7; i++) {
-		pieces[1][i] = new Pawn{ Color::black, 1, (i+1), PieceType::Pawn };
+	pieces[0][0] = new Rook{ Color::black, 1, 1 };
+	pieces[0][1] = new Knight{ Color::black, 1, 2 };
+	pieces[0][2] = new Bishop{ Color::black, 1, 3 };
+	pieces[0][3] = new Queen{ Color::black, 1, 4 };
+	pieces[0][4] = new King{ Color::black, 1, 5 };
+	pieces[0][5] = new Bishop{ Color::black, 1, 6 };
+	pieces[0][6] = new Knight{ Color::black, 1, 7 };
+	pieces[0][7] = new Rook{ Color::black, 1, 8 };
+	for (int i = 0; i < 8; i++) {
+		pieces[1][i] = new Pawn{ Color::black, 1, (i + 1) };
 	}
-	pieces[0][1]->debug();
-	if (pieces[4][4] == nullptr) {
-		std::cout << "its a nullptr";
+	for (int i = 0; i < 8; i++) {
+		pieces[6][i] = new Pawn{ Color::black,6, (i + 1) };
 	}
+	pieces[7][0] = new Rook{ Color::white, 7, 1 };
+	pieces[7][1] = new Knight{ Color::white, 7, 2 };
+	pieces[7][2] = new Bishop{ Color::white, 7, 3 };
+	pieces[7][3] = new King{ Color::white, 7, 4 };
+	pieces[7][4] = new Queen{ Color::white, 7, 5 };
+	pieces[7][5] = new Bishop{ Color::white, 7, 6 };
+	pieces[7][6] = new Knight{ Color::white, 7, 7 };
+	pieces[7][7] = new Rook{ Color::white, 7, 8 };
+	//Might redo for some more profesional code, who knows
 }
 
 
@@ -54,10 +62,10 @@ void Board::draw(sf::RenderWindow & window)
 				sf::Color colour{ 240, 217, 181, 255 };
 				fields[i][j] = colour;
 			}
-				
+
 		}
 	}
-	sf::Vector2u wsize = window.getSize();	
+	sf::Vector2u wsize = window.getSize();
 	sf::Vector2u pos = wsize;
 	wsize.x *= 0.8;
 	wsize.y *= 0.8;
@@ -78,7 +86,7 @@ void Board::draw(sf::RenderWindow & window)
 		posx = offset;
 		posy += length;
 	}
-	
+
 
 
 }
