@@ -61,10 +61,11 @@ void Piece::getSprite()
 	}
 	else {
 		this->texture = texture;
+		this->texture.setSmooth(true);
 		this->sprite.setTexture(this->texture);
 	}
-	//else std::cout << "Texture loaded :D";
-	
+	this->sprite.setScale(0.1f, 0.1f);
+	sprite.setPosition(coord.y*100+10, coord.x*100+10);
 }
 
 void Piece::debug()

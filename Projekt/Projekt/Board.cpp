@@ -21,19 +21,19 @@ Board::Board()
 	pieces[0][6] = new Knight{ Color::black, 1, 7 };
 	pieces[0][7] = new Rook{ Color::black, 1, 8 };
 	for (int i = 0; i < 8; i++) {
-		pieces[1][i] = new Pawn{ Color::black, 1, (i + 1) };
+		pieces[1][i] = new Pawn{ Color::black, 2, (i + 1) };
 	}
 	for (int i = 0; i < 8; i++) {
-		pieces[6][i] = new Pawn{ Color::black,6, (i + 1) };
+		pieces[6][i] = new Pawn{ Color::white,7, (i + 1) };
 	}
-	pieces[7][0] = new Rook{ Color::white, 7, 1 };
-	pieces[7][1] = new Knight{ Color::white, 7, 2 };
-	pieces[7][2] = new Bishop{ Color::white, 7, 3 };
-	pieces[7][3] = new King{ Color::white, 7, 4 };
-	pieces[7][4] = new Queen{ Color::white, 7, 5 };
-	pieces[7][5] = new Bishop{ Color::white, 7, 6 };
-	pieces[7][6] = new Knight{ Color::white, 7, 7 };
-	pieces[7][7] = new Rook{ Color::white, 7, 8 };
+	pieces[7][0] = new Rook{ Color::white, 8, 1 };
+	pieces[7][1] = new Knight{ Color::white, 8, 2 };
+	pieces[7][2] = new Bishop{ Color::white, 8, 3 };
+	pieces[7][3] = new King{ Color::white, 8, 4 };
+	pieces[7][4] = new Queen{ Color::white, 8, 5 };
+	pieces[7][5] = new Bishop{ Color::white, 8, 6 };
+	pieces[7][6] = new Knight{ Color::white, 8, 7 };
+	pieces[7][7] = new Rook{ Color::white, 8, 8 };
 	//pieces[5][5]->getSprite();
 	//Might redo for some more profesional code, who knows
 }
@@ -88,6 +88,11 @@ void Board::draw(sf::RenderWindow & window)
 		posy += length;
 	}
 
-	pieces[0][4]->draw(window);
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if(pieces[i][j] !=nullptr) pieces[i][j]->draw(window);
+		}
+	}
+	
 
 }

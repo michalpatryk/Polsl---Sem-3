@@ -2,8 +2,8 @@
 #include "graphicHandle.h"
 #include "Board.h"
 
-#define HEIGHT 800
-#define WIDTH 800
+#define HEIGHT 1000
+#define WIDTH 1000
 void sfmlINIT()
 {
 
@@ -25,7 +25,6 @@ void sfmlMAIN(Board board)
 
 		window.clear();
 		board.draw(window);
-		//window.draw(sprite);
 		window.display();
 	}
 }
