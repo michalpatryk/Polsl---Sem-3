@@ -5,7 +5,7 @@
 #include "Queen.h"
 #include "King.h"
 #include "Pawn.h"
-
+#include <iostream>
 Board::Board()
 {
 	//Litery u górze - numery kolumn. Cyfry z boku - numery wierszy
@@ -24,6 +24,9 @@ Board::Board()
 		pieces[1][i] = new Pawn{ Color::black, 1, (i+1), PieceType::Pawn };
 	}
 	pieces[0][1]->debug();
+	if (pieces[4][4] == nullptr) {
+		std::cout << "its a nullptr";
+	}
 }
 
 
