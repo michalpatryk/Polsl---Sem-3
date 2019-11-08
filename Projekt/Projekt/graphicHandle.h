@@ -4,4 +4,3 @@
 
 void sfmlINIT();
 void sfmlMAIN(Board board);
-void boardDraw();

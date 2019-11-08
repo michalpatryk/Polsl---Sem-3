@@ -8,6 +8,7 @@ class Board
 	Piece *pieces[8][8];
 	std::vector<Piece> lost;
 public:
+
 	Board();
 	
 	~Board();

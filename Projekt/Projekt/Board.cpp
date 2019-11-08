@@ -34,6 +34,7 @@ Board::Board()
 	pieces[7][5] = new Bishop{ Color::white, 7, 6 };
 	pieces[7][6] = new Knight{ Color::white, 7, 7 };
 	pieces[7][7] = new Rook{ Color::white, 7, 8 };
+	//pieces[5][5]->getSprite();
 	//Might redo for some more profesional code, who knows
 }
 
@@ -87,6 +88,6 @@ void Board::draw(sf::RenderWindow & window)
 		posy += length;
 	}
 
-
+	pieces[0][2]->draw(window);
 
 }

@@ -3,6 +3,18 @@
 #include <iostream>
 
 
+std::string Piece::getFilename()
+{
+	std::string filename = "../Pieces_Images";
+	if (color == Color::white) {
+		filename += "/White";
+	}
+	else if (color == Color::black) {
+		filename += "/Black";
+	}
+	return filename;
+}
+
 Piece::Piece()
 {
 	color = Color::zero;
@@ -21,16 +33,18 @@ Piece Piece::operator=(const Piece & piece_)
 	return returner;
 }
 
-void Piece::draw(sf::RenderWindow & window, PieceType piece_)
+void Piece::draw(sf::RenderWindow & window)
 {
 
-	sf::Vector2u wsize = window.getSize();
+	/*sf::Vector2u wsize = window.getSize();
 	float scale = wsize.x / 10;
 	float coordX = (this->coord.x * scale) + scale;
 	float coordY = (this->coord.y * scale) + scale;
 	float size = wsize.x / 15;
-	sf::Texture texture;
-	std::string filename = "";
+*/
+	/*sf::Vector2f targetSize(10.0f, 10.0f);
+	sprite.setScale(targetSize);*/
+	window.draw(sprite);
 
 }
 

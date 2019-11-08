@@ -11,6 +11,7 @@
 int main() 
 {
 	Board board;
+	
 	sfmlMAIN(board);
 	
 
