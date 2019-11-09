@@ -14,7 +14,6 @@ int main()
 	sfmlMAIN(board);
 	
 
-	std::cout << "Test";
 	_CrtDumpMemoryLeaks();
 	return 0;
 }

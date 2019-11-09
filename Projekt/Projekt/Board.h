@@ -13,5 +13,9 @@ public:
 	
 	~Board();
 	void draw(sf::RenderWindow & window);
+	void drawPieces(sf::RenderWindow &window);
+
+	friend Piece;
+	friend void sfmlMAIN(Board board);	//needed for sprite acces
 };
 

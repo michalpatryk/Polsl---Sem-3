@@ -35,17 +35,8 @@ Piece Piece::operator=(const Piece & piece_)
 
 void Piece::draw(sf::RenderWindow & window)
 {
-
-	/*sf::Vector2u wsize = window.getSize();
-	float scale = wsize.x / 10;
-	float coordX = (this->coord.x * scale) + scale;
-	float coordY = (this->coord.y * scale) + scale;
-	float size = wsize.x / 15;
-*/
-	/*sf::Vector2f targetSize(10.0f, 10.0f);
-	sprite.setScale(targetSize);*/
+	sprite.setPosition(coord.x * 100 + 10, coord.y * 100 + 10);
 	window.draw(sprite);
-
 }
 
 void Piece::getSprite()
@@ -65,7 +56,7 @@ void Piece::getSprite()
 		this->sprite.setTexture(this->texture);
 	}
 	this->sprite.setScale(0.1f, 0.1f);
-	sprite.setPosition(coord.y*100+10, coord.x*100+10);
+	this->sprite.setPosition(coord.y*100+10, coord.x*100+10);
 }
 
 void Piece::debug()
