@@ -31,6 +31,7 @@ void sfmlMAIN(Board board)
 						for (int j = 0; j < 8; j++) {
 							if(board.pieces[i][j]!=nullptr && 
 								board.pieces[i][j]->sprite.getGlobalBounds().contains(position.x, position.y)) {
+								board.pieces[i][j]->isHeld = 1;
 								isMove = true;
 								indexX = i;
 								indexY = j;
@@ -41,11 +42,12 @@ void sfmlMAIN(Board board)
 			}
 			if (event.type == sf::Event::MouseButtonReleased) {
 				if (event.key.code == sf::Mouse::Left) {
+					board.pieces[indexX][indexY]->isHeld = 0;
 					isMove = false;
 				}
 			}
 		}
-		if (isMove) {
+		if (isMove) {	//moves a piece
 			board.pieces[indexX][indexY]->coord.x = position.x/100;
 			board.pieces[indexX][indexY]->coord.y = position.y/100;
 		}

@@ -15,6 +15,7 @@ public:
 	Coord coord;
 	sf::Sprite sprite;
 	sf::Texture texture;
+	bool isHeld = 0;	//makes sure the piece is rendered on top
 
 	Piece();
 	Piece(Color color_, int x_, int y_) : color(color_), 

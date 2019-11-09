@@ -21,10 +21,10 @@ Board::Board()
 	pieces[0][6] = new Knight{ Color::black, 7, 1 };
 	pieces[0][7] = new Rook{ Color::black, 8, 1 };
 	for (int i = 0; i < 8; i++) {
-		pieces[1][i] = new Pawn{ Color::black, (i+1), 2 };
+		pieces[1][i] = new Pawn{ Color::black, (i + 1), 2 };
 	}
 	for (int i = 0; i < 8; i++) {
-		pieces[6][i] = new Pawn{ Color::white, (i+1), 7 };
+		pieces[6][i] = new Pawn{ Color::white, (i + 1), 7 };
 	}
 	pieces[7][0] = new Rook{ Color::white, 1, 8 };
 	pieces[7][1] = new Knight{ Color::white, 2, 8 };
@@ -90,9 +90,18 @@ void Board::draw(sf::RenderWindow & window)
 
 void Board::drawPieces(sf::RenderWindow & window)
 {
+	bool priority = false;
+	int priorityX = 0, prioriryY = 0;
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
-			if (pieces[i][j] != nullptr) pieces[i][j]->draw(window);
+			if (pieces[i][j] != nullptr) {
+				if (pieces[i][j]->isHeld == 1) {
+					priority = true;
+					priorityX = i; prioriryY = j;
+				}
+				else pieces[i][j]->draw(window);
+			}
 		}
 	}
+	if (priority == true) pieces[priorityX][prioriryY]->draw(window);
 }
