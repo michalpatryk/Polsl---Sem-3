@@ -3,18 +3,21 @@
 class Wektor :
 	public Punkt
 {
-	float l, d;	//length, direction
+	float dlugosc, kierunek;	//length, direction
 public:
 
 	Wektor(float x_=0, float y_=0);
-	
+	//metody
+	int getLength();
 	Wektor &dodaj(const Wektor &w_);
 	void drukuj();
-
+	//operatory
 	bool operator==(const Wektor &w_) {
 		if (x == w_.x && y == w_.y) return true;
 		else return false;
 	};
+	Wektor & operator+=(const Wektor &w);
+	Wektor & operator=(const Wektor &w);
 	~Wektor();
 };
 

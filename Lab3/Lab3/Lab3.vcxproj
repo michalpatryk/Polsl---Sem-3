@@ -157,12 +157,14 @@
     <ClCompile Include="Punkt.cpp" />
     <ClCompile Include="Tablica.cpp" />
     <ClCompile Include="TablicaWektorow.cpp" />
+    <ClCompile Include="TablicaWektorowSort.cpp" />
     <ClCompile Include="Wektor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Punkt.h" />
     <ClInclude Include="Tablica.h" />
     <ClInclude Include="TablicaWektorow.h" />
+    <ClInclude Include="TablicaWektorowSort.h" />
     <ClInclude Include="Wektor.h" />
   </ItemGroup>
   <ItemGroup>

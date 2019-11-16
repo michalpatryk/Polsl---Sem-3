@@ -2,7 +2,7 @@
 #include "Wektor.h"
 class TablicaWektorow
 {
-public:
+protected:
 	Wektor *w;
 	int dl;
 public:
@@ -12,6 +12,12 @@ public:
 	TablicaWektorow(float *x, float *y, int dl);
 	TablicaWektorow(std::ifstream& file);
 
-	~TablicaWektorow();
+
+	Wektor operator[](int poz) {
+		Wektor w1{ this->w[poz] };
+		return w1;
+	};
+
+	~TablicaWektorow() { delete[] w; };
 };
 

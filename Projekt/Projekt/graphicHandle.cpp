@@ -41,7 +41,7 @@ void sfmlMAIN(Board board)
 				}
 			}
 			if (event.type == sf::Event::MouseButtonReleased) {
-				if (event.key.code == sf::Mouse::Left) {
+				if (event.key.code == sf::Mouse::Left) {	//add logic here
 					board.pieces[indexX][indexY]->isHeld = 0;
 					isMove = false;
 				}

@@ -46,7 +46,3 @@ TablicaWektorow::TablicaWektorow(std::ifstream & file)
 	}
 }
 
-
-TablicaWektorow::~TablicaWektorow()
-{
-}
