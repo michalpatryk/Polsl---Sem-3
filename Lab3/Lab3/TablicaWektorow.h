@@ -13,10 +13,7 @@ public:
 	TablicaWektorow(std::ifstream& file);
 
 
-	Wektor operator[](int poz) {
-		Wektor w1{ this->w[poz] };
-		return w1;
-	};
+	Wektor operator[](int poz) { return this->w[poz]; };
 
 	~TablicaWektorow() { delete[] w; };
 };

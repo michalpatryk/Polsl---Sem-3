@@ -55,6 +55,7 @@ bool Wektor::operator>(const Wektor & w)
 	return (dlugosc > w.dlugosc);
 }
 
+
 Wektor::~Wektor()
 {
 }

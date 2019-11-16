@@ -17,6 +17,7 @@ public:
 	};
 	Wektor & operator+=(const Wektor &w);
 	Wektor & operator=(const Wektor &w);
+	//sorting
 	bool operator<(const Wektor &w);
 	bool operator>(const Wektor &w);
 	~Wektor();
