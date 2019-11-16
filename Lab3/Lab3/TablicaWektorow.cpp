@@ -46,3 +46,8 @@ TablicaWektorow::TablicaWektorow(std::ifstream & file)
 	}
 }
 
+int TablicaWektorow::size()
+{
+	return dl;
+}
+

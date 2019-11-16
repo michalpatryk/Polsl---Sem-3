@@ -4,7 +4,7 @@
 
 
 
-TablicaWektorowSort::TablicaWektorowSort(int dl)
+TablicaWektorowSort::TablicaWektorowSort(int dl) 
 {
 	w = new Wektor[dl];
 	for (int i = 0; i < dl; i++) {
@@ -12,8 +12,9 @@ TablicaWektorowSort::TablicaWektorowSort(int dl)
 	}
 }
 
-TablicaWektorowSort::TablicaWektorowSort(const TablicaWektorowSort & w_)
+TablicaWektorowSort::TablicaWektorowSort(const TablicaWektorowSort & w_) 
 {
+	this->dl = w_.dl;
 	w = new Wektor[dl];
 	for (int i = 0; i < dl; i++) {
 		w[i] = Wektor{ w_.w[i] };
@@ -30,6 +31,24 @@ TablicaWektorowSort::TablicaWektorowSort(float * x, float * y, int dl)
 	std::sort(w, w + dl);
 
 }
+
+TablicaWektorowSort::TablicaWektorowSort(TablicaWektorow & w_)
+{
+	dl = w_.size();
+	w = new Wektor[dl];
+	for (int i = 0; i < dl; i++) {
+		std::cout << "Wut";
+		w[i] = Wektor{ w_[i] };
+	}
+
+}
+
+int TablicaWektorowSort::size()
+{
+	return dl;
+}
+
+
 
 TablicaWektorowSort::~TablicaWektorowSort()
 {

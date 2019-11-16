@@ -12,8 +12,10 @@ public:
 	TablicaWektorow(float *x, float *y, int dl);
 	TablicaWektorow(std::ifstream& file);
 
+	int size();
 
-	Wektor operator[](int poz) { return this->w[poz]; };
+	Wektor & operator[](const int poz) { return w[poz]; };
+	Wektor operator[](const int poz) const { return Wektor{ w[poz] }; }
 
 	~TablicaWektorow() { delete[] w; };
 };

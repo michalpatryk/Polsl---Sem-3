@@ -12,6 +12,14 @@ Wektor::Wektor(float x_, float y_)
 	else  kierunek = tan((x_ / y_)); 
 }
 
+Wektor::Wektor(const Wektor & w)
+{
+	x = w.x;
+	y = w.y;
+	dlugosc = w.dlugosc;
+	kierunek = w.kierunek;
+}
+
 
 
 Wektor & Wektor::dodaj(const Wektor & w_)

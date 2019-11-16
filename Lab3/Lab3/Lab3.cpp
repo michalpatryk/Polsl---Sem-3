@@ -26,6 +26,12 @@ int main()
 	float y[10] = { 10,9,8,7,6,50,4,3,2,1 };
 	TablicaWektorowSort tws2{ x,y,10 };
 
+	TablicaWektorowSort tws3{ tws2 };
+	TablicaWektorow tw1{ x, y, 10 };
+	int dl = tw1.size();
+	TablicaWektorowSort tws4{ tw1 };
+
+
 	_CrtDumpMemoryLeaks();	//sprawdzanie wycieków pamięci
 	return 0;
 }

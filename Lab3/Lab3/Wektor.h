@@ -7,6 +7,7 @@ class Wektor :
 public:
 
 	Wektor(float x_=0, float y_=0);
+	Wektor(const Wektor &w);
 	//metody
 	Wektor &dodaj(const Wektor &w_);
 	void drukuj();
