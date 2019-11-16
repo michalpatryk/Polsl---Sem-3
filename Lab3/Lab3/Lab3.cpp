@@ -22,17 +22,23 @@ int main()
 	//--------------------------------------------------------//
 	{
 		TablicaWektorowSort tws1{ 5 };
+		tws1.drukuj();
 
 		float x[10] = { 10,2,3,4,5,50,7,8,9,1 };
 		float y[10] = { 10,9,8,7,6,50,4,3,2,1 };
 		TablicaWektorowSort tws2{ x,y,10 };
+		tws2.drukuj();
 
 		TablicaWektorowSort tws3{ tws2 };
 		TablicaWektorow tw1{ x, y, 10 };
 		int dl = tw1.size();
-		TablicaWektorowSort tws4{ tw1 };
 
+		TablicaWektorowSort tws4{ tw1 };
+		tws4.drukuj();
 		tws4.wstaw(w3);
+		tws4.drukuj();
+		tws4 = w2;
+		tws4.drukuj();
 
 	}
 	_CrtDumpMemoryLeaks();	//sprawdzanie wycieków pamięci

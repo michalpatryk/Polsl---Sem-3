@@ -6,9 +6,10 @@
 
 TablicaWektorowSort::TablicaWektorowSort(int dl) 
 {
+	this->dl = dl;
 	w = new Wektor[dl];
 	for (int i = 0; i < dl; i++) {
-		w[i] = Wektor{ 0.0 };
+		w[i] = Wektor{ 0, 0 };
 	}
 }
 
@@ -23,6 +24,7 @@ TablicaWektorowSort::TablicaWektorowSort(const TablicaWektorowSort & w_)
 
 TablicaWektorowSort::TablicaWektorowSort(float * x, float * y, int dl)
 {
+	this->dl = dl;
 	w = new Wektor[dl];
 	for (int i = 0; i < dl; i++) {
 		w[i] = Wektor{ x[i],y[i] };
@@ -39,6 +41,7 @@ TablicaWektorowSort::TablicaWektorowSort(TablicaWektorow & w_)
 	for (int i = 0; i < dl; i++) {
 		w[i] = Wektor{ w_[i] };
 	}
+	//now sort
 	std::sort(w, w + dl);
 }
 
@@ -52,13 +55,21 @@ void TablicaWektorowSort::wstaw(Wektor & w_)
 	Wektor* temp = w;
 	dl++;
 	w = new Wektor[dl];
+	int max = dl-1;
 	bool isInsert = 0;
-	for (int i = 0, j=0; i < dl; i++, j++) {
+	for (int i = 0; i < dl; i++) {
 		if (w_ < temp[i] && !isInsert) {
-			w[j] = Wektor{ w_ };
+			w[i] = Wektor{ w_ };
 			isInsert = true;
-			j++;
 		}
-		else w[j] = temp[i];
+		else if (i == max && !isInsert) w[i] = Wektor{ w_ };
+		else w[i] = temp[i-isInsert];
 	}
+	delete[] temp;
+}
+
+TablicaWektorowSort & TablicaWektorowSort::operator=(Wektor & w_)
+{
+	TablicaWektorowSort::wstaw(w_);
+	return *this;
 }

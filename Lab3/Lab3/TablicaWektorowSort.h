@@ -11,6 +11,7 @@ public:
 
 	int size();
 	void wstaw(Wektor & w_);
+	TablicaWektorowSort & operator=(Wektor &w_);
 
 	~TablicaWektorowSort() {};
 };

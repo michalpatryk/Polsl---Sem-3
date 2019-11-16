@@ -13,9 +13,11 @@ public:
 	TablicaWektorow(std::ifstream& file);
 
 	int size();
+	void drukuj();
 
 	Wektor & operator[](const int poz) { return w[poz]; };
 	Wektor operator[](const int poz) const { return Wektor{ w[poz] };  }
+	TablicaWektorow & operator=(const TablicaWektorow &w_);
 
 	~TablicaWektorow() { delete[] w; };
 };

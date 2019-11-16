@@ -1,13 +1,13 @@
 #include "TablicaWektorow.h"
 #include <fstream>
-
+#include <iomanip>
 
 
 TablicaWektorow::TablicaWektorow(int dl) :dl(dl)
 {
 	w = new Wektor[dl];
 	for (int i = 0; i < dl; i++) {
-		w[i] = Wektor{ 0.0 };
+		w[i] = Wektor{ 0, 0 };
 	}
 }
 
@@ -51,3 +51,22 @@ int TablicaWektorow::size()
 	return dl;
 }
 
+void TablicaWektorow::drukuj()
+{
+	std::cout << "Tablica: \n";
+	for (int i = 0; i < dl; i++) {
+		std::cout << std::setw((int)ceil(log10(dl))) << i << ". ";	//wyrownanie
+		w[i].drukuj();
+	}
+}
+
+TablicaWektorow & TablicaWektorow::operator=(const TablicaWektorow & w_)
+{
+	dl = w_.dl;
+	delete[] w;
+	w = new Wektor[dl];
+	for (int i = 0; i < dl; i++) {
+		w[i] = Wektor{ w_.w[i] };
+	}
+	return *this;
+}
