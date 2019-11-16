@@ -8,7 +8,6 @@ public:
 
 	Wektor(float x_=0, float y_=0);
 	//metody
-	int getLength();
 	Wektor &dodaj(const Wektor &w_);
 	void drukuj();
 	//operatory
@@ -18,6 +17,8 @@ public:
 	};
 	Wektor & operator+=(const Wektor &w);
 	Wektor & operator=(const Wektor &w);
+	bool operator<(const Wektor &w);
+	bool operator>(const Wektor &w);
 	~Wektor();
 };
 

@@ -7,15 +7,12 @@ Wektor::Wektor(float x_, float y_)
 {
 	x = x_;
 	y = y_;
-	dlugosc = sqrt((x_*x_) + (y_ + y_));
+	dlugosc = sqrt((x_*x_) + (y_ * y_));
 	if (y == 0 || x == 0)  kierunek = 0; 
 	else  kierunek = tan((x_ / y_)); 
 }
 
-int Wektor::getLength()
-{
-	return dlugosc;
-}
+
 
 Wektor & Wektor::dodaj(const Wektor & w_)
 {
@@ -42,10 +39,20 @@ Wektor & Wektor::operator=(const Wektor & w)
 {
 	x = w.x;
 	y = w.y;
-	dlugosc = sqrt((w.x*w.x) + (w.y + w.y));
+	dlugosc = sqrt((w.x*w.x) + (w.y*w.y));
 	if (y == 0 || x == 0)  kierunek = 0;
 	else  kierunek = tan((w.x / w.y));
 	return *this;
+}
+
+bool Wektor::operator<(const Wektor & w)
+{
+	return (dlugosc < w.dlugosc);
+}
+
+bool Wektor::operator>(const Wektor & w)
+{
+	return (dlugosc > w.dlugosc);
 }
 
 Wektor::~Wektor()
