@@ -37,10 +37,9 @@ TablicaWektorowSort::TablicaWektorowSort(TablicaWektorow & w_)
 	dl = w_.size();
 	w = new Wektor[dl];
 	for (int i = 0; i < dl; i++) {
-		std::cout << "Wut";
 		w[i] = Wektor{ w_[i] };
 	}
-
+	std::sort(w, w + dl);
 }
 
 int TablicaWektorowSort::size()
@@ -48,8 +47,18 @@ int TablicaWektorowSort::size()
 	return dl;
 }
 
-
-
-TablicaWektorowSort::~TablicaWektorowSort()
+void TablicaWektorowSort::wstaw(Wektor & w_)
 {
+	Wektor* temp = w;
+	dl++;
+	w = new Wektor[dl];
+	bool isInsert = 0;
+	for (int i = 0, j=0; i < dl; i++, j++) {
+		if (w_ < temp[i] && !isInsert) {
+			w[j] = Wektor{ w_ };
+			isInsert = true;
+			j++;
+		}
+		else w[j] = temp[i];
+	}
 }

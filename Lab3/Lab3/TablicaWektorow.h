@@ -15,7 +15,7 @@ public:
 	int size();
 
 	Wektor & operator[](const int poz) { return w[poz]; };
-	Wektor operator[](const int poz) const { return Wektor{ w[poz] }; }
+	Wektor operator[](const int poz) const { return Wektor{ w[poz] };  }
 
 	~TablicaWektorow() { delete[] w; };
 };

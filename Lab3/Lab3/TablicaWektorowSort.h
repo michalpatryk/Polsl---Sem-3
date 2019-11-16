@@ -10,7 +10,8 @@ public:
 	TablicaWektorowSort(TablicaWektorow &w_);
 
 	int size();
+	void wstaw(Wektor & w_);
 
-	~TablicaWektorowSort();
+	~TablicaWektorowSort() {};
 };
 
