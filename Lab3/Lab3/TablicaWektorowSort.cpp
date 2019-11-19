@@ -4,7 +4,7 @@
 
 
 
-TablicaWektorowSort::TablicaWektorowSort(int dl) 
+TablicaWektorowSort::TablicaWektorowSort(int dl) //: TablicaWektorow (dl)
 {
 	this->dl = dl;
 	w = new Wektor[dl];
@@ -22,7 +22,12 @@ TablicaWektorowSort::TablicaWektorowSort(const TablicaWektorowSort & w_)
 	}
 }
 
-TablicaWektorowSort::TablicaWektorowSort(float * x, float * y, int dl)
+TablicaWektorowSort::TablicaWektorowSort(float * x, float * y, int dl) 
+//Alternative:	
+//TablicaWektorowSort::TablicaWektorowSort(float * x, float * y, int dl) :TablicaWektorow(x, y, dl)
+//{
+//std::sort(w, w+dl);
+//}
 {
 	this->dl = dl;
 	w = new Wektor[dl];
@@ -34,7 +39,7 @@ TablicaWektorowSort::TablicaWektorowSort(float * x, float * y, int dl)
 
 }
 
-TablicaWektorowSort::TablicaWektorowSort(TablicaWektorow & w_)
+TablicaWektorowSort::TablicaWektorowSort(TablicaWektorow & w_)	//Same as above
 {
 	dl = w_.size();
 	w = new Wektor[dl];

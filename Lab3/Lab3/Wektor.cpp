@@ -1,9 +1,9 @@
-#include "Wektor.h"
+﻿#include "Wektor.h"
 #include <math.h>
 #include <iostream>
 
 
-Wektor::Wektor(float x_, float y_)
+Wektor::Wektor(float x_, float y_)	//można również :Punkt(x_, y_)
 {
 	x = x_;
 	y = y_;
@@ -12,7 +12,7 @@ Wektor::Wektor(float x_, float y_)
 	else  kierunek = tan((x_ / y_)); 
 }
 
-Wektor::Wektor(const Wektor & w)
+Wektor::Wektor(const Wektor & w)	//jak wyżej
 {
 	x = w.x;
 	y = w.y;
