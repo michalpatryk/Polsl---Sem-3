@@ -18,7 +18,7 @@
     <ClCompile Include="Lab4.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="szachcpp.cpp">
+    <ClCompile Include="szach.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
