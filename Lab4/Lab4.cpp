@@ -1,10 +1,14 @@
 ﻿
-
+#include "szach.h"
+//#include "szach.cpp"
 #include <iostream>
 
 int main()
 {
+
     std::cout << "Hello World!\n"; 
+	Szachownica szachownica;
+//	Goniec goniec1;
 }
 
 /*

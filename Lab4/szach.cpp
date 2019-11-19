@@ -23,7 +23,9 @@ class Goniec : public Figura
 		// wywo³aæ set(int x,int y,Figura *f) z odpowiednim parametrem
 		return true;
 	}
-	void range();
+	void range() {
+
+	};
 
 };
 

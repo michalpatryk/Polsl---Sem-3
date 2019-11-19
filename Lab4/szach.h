@@ -14,13 +14,23 @@ public:
 	{
 		clear();
 	}
-	void showRange(); // metoda wywo³uje na wszystkich polach tablicy sz (ró¿nych od NULL)
+	void showRange() {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (sz[i][j] != nullptr) {
+//					sz[i][j]->range();
+				}
+			}
+		}
+	}; // metoda wywo³uje na wszystkich polach tablicy sz (ró¿nych od NULL)
 	//metodê wirtualn¹ range 
 	void display(); // wyœwietla szachownnice (tablica wiz)
 	void clear();// tworzy pust¹ szachownice, wywo³uje metode remove na wszystkich polach tablicy sz (ró¿nych od NULL)
   // UWAGA usuniêcie figury nie oznacza usuniêcie z pamiêci - nie wywo³ujemy delete
 
 };
+
+
 class Figura
 {
 protected:
