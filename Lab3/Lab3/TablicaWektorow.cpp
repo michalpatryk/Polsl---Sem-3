@@ -60,6 +60,19 @@ void TablicaWektorow::drukuj()
 	}
 }
 
+void TablicaWektorow::dodaj(Wektor & w_)
+{
+	dl++;
+	Wektor *temp = w;
+	w = new Wektor[dl];
+	for (int i = 0; i < dl; i++) {
+		w[i] = Wektor{ temp[i] };
+	}
+	w[dl - 1] = Wektor{ w_ };
+}
+
+
+
 TablicaWektorow & TablicaWektorow::operator=(const TablicaWektorow & w_)
 {
 	dl = w_.dl;

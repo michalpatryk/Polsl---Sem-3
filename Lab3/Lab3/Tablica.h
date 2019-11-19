@@ -1,4 +1,5 @@
-#pragma once
+﻿#pragma once
+//KLASA NIE UŻYWANA W ZADANIU, TRENING UŻYWANIA TEMPLATE <>//
 #include "Punkt.h"
 #include "Wektor.h"
 #include <fstream>

@@ -14,6 +14,7 @@ public:
 
 	int size();
 	void drukuj();
+	void dodaj(Wektor &w_);
 
 	Wektor & operator[](const int poz) { return w[poz]; };
 	Wektor operator[](const int poz) const { return Wektor{ w[poz] };  }

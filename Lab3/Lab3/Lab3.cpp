@@ -32,6 +32,9 @@ int main()
 		TablicaWektorowSort tws3{ tws2 };
 		TablicaWektorow tw1{ x, y, 10 };
 		int dl = tw1.size();
+		TablicaWektorow tw2{ y,x,10 };
+		tw1 = tw2;
+		tw1[2].drukuj();
 
 		TablicaWektorowSort tws4{ tw1 };
 		tws4.drukuj();
