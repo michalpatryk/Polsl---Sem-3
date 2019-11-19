@@ -18,7 +18,7 @@
     <ClCompile Include="Lab4.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="szach.cpp">
+    <ClCompile Include="Szachownica.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
@@ -28,7 +28,16 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="szach.h">
+    <ClInclude Include="Figura.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Szachownica.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Wieza.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Goniec.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

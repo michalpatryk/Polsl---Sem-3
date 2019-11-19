@@ -1,6 +1,6 @@
 ﻿
-#include "szach.h"
-//#include "szach.cpp"
+#include "Figura.h"
+#include "Goniec.h"
 #include <iostream>
 
 int main()
@@ -8,7 +8,7 @@ int main()
 
     std::cout << "Hello World!\n"; 
 	Szachownica szachownica;
-//	Goniec goniec1;
+	//Goniec goniec1;
 }
 
 /*

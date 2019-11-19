@@ -152,13 +152,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Lab4.cpp" />
-    <ClCompile Include="szach.cpp" />
+    <ClCompile Include="Szachownica.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\Downloads\pk4_zad4.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="szach.h" />
+    <ClInclude Include="Figura.h" />
+    <ClInclude Include="Goniec.h" />
+    <ClInclude Include="Szachownica.h" />
+    <ClInclude Include="Wieza.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
