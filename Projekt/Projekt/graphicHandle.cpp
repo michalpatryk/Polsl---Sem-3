@@ -41,12 +41,7 @@ void sfmlMAIN(Board board)
 								isMove = true;					//changing isMove flag so that the piece floats to where our mouse is
 								indexX = i;						//tells the X coord of currently moving piece
 								indexY = j;
-								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);
-								//if (board.pieces[i][j]->returnType() == PieceType::Pawn) { currentMove += "P"; }
-								//currentMove += board.pieces[i][j]->returnType();
-								//currentMove += std::to_string(board.pieces[i][j]->coord.x);
-								//currentMove += std::to_string(board.pieces[i][j]->coord.y);
-								//currentMove += "-";
+								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);	//move register
 							}
 						}
 					}
@@ -56,11 +51,9 @@ void sfmlMAIN(Board board)
 				if (event.key.code == sf::Mouse::Left) {	//releases piece
 					board.pieces[indexX][indexY]->isHeld = 0;
 					isMove = false;
-					currentMove += std::to_string(board.pieces[indexX][indexY]->coord.x);
-					currentMove += std::to_string(board.pieces[indexX][indexY]->coord.y);
-					std::cout << currentMove << std::endl;
-					moveList.push_back(currentMove);
-					currentMove.clear();
+					secondCoordAndVectorHandle(board.pieces[indexX][indexY]->coord.x, board.pieces[indexX][indexY]->coord.y, moveList, currentMove);	//move register
+					std::cout << moveList.back() << std::endl;	//print last move
+
 				}
 			}
 		}
@@ -91,8 +84,24 @@ std::string firstCoord(PieceType p, int x, int y)
 
 	x += 96;			//convert int coord x into char
 	r += (char)x;		//^
-	r += std::to_string(y);
+	y -= 9;				//flip coordinates eq 1 to 8, 2 to 7 etc
+	y *= -1;
+	r += std::to_string(y);			//BUGGGGGGGGGGGGGG
 	r += "-";
 	return r;
+}
+
+void secondCoordAndVectorHandle(int x, int y, std::vector<std::string>& v, std::string & s)
+{
+	if (!s.empty()) {
+		x += 96;
+		s += (char)x;
+		y -= 9;
+		y *= -1;
+		s += std::to_string(y);
+		v.push_back(s);
+	}
+	s.clear();
+	
 }
 
