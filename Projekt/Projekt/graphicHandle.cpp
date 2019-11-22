@@ -42,7 +42,7 @@ void sfmlMAIN(Board board)
 								indexX = i;						//tells the X coord of currently moving piece
 								indexY = j;
 								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);	//move register
-							
+								
 							}
 						}
 					}

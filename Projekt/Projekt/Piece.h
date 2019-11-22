@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-//#include "Board.h"
+
 enum class Color { black = 0, white = 1, zero = 100};
 enum class PieceType { none = 0, King=100, Queen=10, Rook=4, Bishop=3, Knight=2, Pawn=1 };
 struct Coord { int x; int y; };

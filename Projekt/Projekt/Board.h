@@ -17,7 +17,7 @@ public:
 
 	int** moveCost(Color c);
 
-	friend Piece;
+	//friend Piece;
 	friend void sfmlMAIN(Board board);	//needed for sprite acces
 };
 

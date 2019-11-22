@@ -112,17 +112,20 @@ int ** Board::moveCost(Color c)
 	for (int i = 0; i < 8; i++) {
 		arr[i] = new int[8];
 	}
-	if (c == Color::white) {
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				if (this->pieces[i][j]!=nullptr) {
-					if (this->pieces[i][j]->returnColor() == Color::white) {	arr[i][j] = 2;	}
-					else if (this->pieces[i][j]->returnColor() == Color::black) { arr[i][j] = 1; }
-				}
-				else arr[i][j] = 0;
+	int whiteCost, blackCost;
+	if (c == Color::white) { whiteCost = 2; blackCost = 1; }
+	else if (c == Color::black) { whiteCost = 1; blackCost = 2; }
+
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (this->pieces[i][j] != nullptr) {
+				if (this->pieces[i][j]->returnColor() == Color::white) { arr[i][j] = whiteCost; }
+				else if (this->pieces[i][j]->returnColor() == Color::black) { arr[i][j] = blackCost; }
 			}
+			else arr[i][j] = 0;
 		}
 	}
+
 	return arr;
 }
 
