@@ -42,6 +42,7 @@ void sfmlMAIN(Board board)
 								indexX = i;						//tells the X coord of currently moving piece
 								indexY = j;
 								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);	//move register
+							
 							}
 						}
 					}
@@ -52,7 +53,7 @@ void sfmlMAIN(Board board)
 					board.pieces[indexX][indexY]->isHeld = 0;
 					isMove = false;
 					secondCoordAndVectorHandle(board.pieces[indexX][indexY]->coord.x, board.pieces[indexX][indexY]->coord.y, moveList, currentMove);	//move register
-					std::cout << moveList.back() << std::endl;	//print last move
+					if(!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
 
 				}
 			}
@@ -86,7 +87,7 @@ std::string firstCoord(PieceType p, int x, int y)
 	r += (char)x;		//^
 	y -= 9;				//flip coordinates eq 1 to 8, 2 to 7 etc
 	y *= -1;
-	r += std::to_string(y);			//BUGGGGGGGGGGGGGG
+	r += std::to_string(y);		
 	r += "-";
 	return r;
 }

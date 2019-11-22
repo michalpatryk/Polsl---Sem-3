@@ -15,6 +15,8 @@ public:
 	void draw(sf::RenderWindow & window);
 	void drawPieces(sf::RenderWindow &window);
 
+	int** moveCost(Coord xy, Color c);
+
 	friend Piece;
 	friend void sfmlMAIN(Board board);	//needed for sprite acces
 };

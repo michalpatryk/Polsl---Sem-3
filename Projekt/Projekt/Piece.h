@@ -29,6 +29,7 @@ public:
 	void getSprite();
 	
 	virtual PieceType returnType() { return PieceType::none; };
+	Color returnColor() { return color; };
 	virtual void debug();
 	
 };
