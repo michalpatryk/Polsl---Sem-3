@@ -106,7 +106,7 @@ void Board::drawPieces(sf::RenderWindow & window)
 	if (priority == true) pieces[priorityX][prioriryY]->draw(window);
 }
 
-int ** Board::moveCost(Coord xy, Color c)
+int ** Board::moveCost(Color c)
 {
 	int** arr = new int*[8];
 	for (int i = 0; i < 8; i++) {
@@ -116,8 +116,8 @@ int ** Board::moveCost(Coord xy, Color c)
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				if (this->pieces[i][j]!=nullptr) {
-					if (this->pieces[i][j]->returnColor == Color::white) {	arr[i][j] = 2;	}
-					else if (this->pieces[i][j]->returnColor == Color::black) { arr[i][j] = 1; }
+					if (this->pieces[i][j]->returnColor() == Color::white) {	arr[i][j] = 2;	}
+					else if (this->pieces[i][j]->returnColor() == Color::black) { arr[i][j] = 1; }
 				}
 				else arr[i][j] = 0;
 			}
