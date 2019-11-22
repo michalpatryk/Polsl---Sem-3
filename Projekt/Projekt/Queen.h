@@ -8,6 +8,7 @@ public:
 	Queen(Color color_, int x_, int y_) : Piece(color_, x_, y_) { getSprite(); };
 	~Queen();
 	void debug();
+	PieceType returnType() { return piece; };
 	std::string getPieceFilename() { return "/Queen.png"; };
 };
 

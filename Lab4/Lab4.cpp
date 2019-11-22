@@ -8,7 +8,7 @@ int main()
 
     std::cout << "Hello World!\n"; 
 	Szachownica szachownica;
-	//Goniec goniec1;
+	Goniec goniec1;
 }
 
 /*

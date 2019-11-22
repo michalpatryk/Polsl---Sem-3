@@ -28,6 +28,7 @@ public:
 	void draw(sf::RenderWindow & window);
 	void getSprite();
 	
+	virtual PieceType returnType() { return PieceType::none; };
 	virtual void debug();
 	
 };

@@ -8,6 +8,7 @@ public:
 	Bishop(Color color_, int x_, int y_) : Piece(color_, x_, y_) { getSprite(); };
 	~Bishop();
 	void debug();
+	PieceType returnType() { return piece; };
 	std::string getPieceFilename() { return "/Bishop.png"; };
 };
 

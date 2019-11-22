@@ -8,6 +8,7 @@ public:
 	Rook(Color color_, int x_, int y_) : Piece(color_, x_, y_) { getSprite(); };
 	~Rook();
 	void debug();
+	PieceType returnType() { return piece; };
 	std::string getPieceFilename() { return "/Rook.png"; };
 };
 

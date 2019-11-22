@@ -5,7 +5,7 @@ class Figura
 {
 protected:
 
-	Szachownica* s; //figura zna swoj¹ szachownice - ustawiane przez set
+	Szachownica *s; //figura zna swoj¹ szachownice - ustawiane przez set
 	int x, y; // po³o¿enie na szachownicy ustawiane przez set 
 	bool set(int x, int y, char z)//pomocnicza uzywana przez range i set w sekcji public 
 								 //UWAGA:(friend nie jest dziedziczony)

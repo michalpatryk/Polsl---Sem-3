@@ -8,6 +8,7 @@ public:
 	Pawn(Color color_, int x_, int y_) : Piece(color_, x_, y_) { getSprite(); };
 	~Pawn();
 	void debug();
+	PieceType returnType() { return piece; };
 	std::string getPieceFilename() { return "/Pawn.png"; };
 };
 

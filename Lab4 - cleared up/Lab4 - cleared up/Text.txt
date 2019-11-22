@@ -1,0 +1,132 @@
+﻿Dane są następujące klasy:
+
+//// szach.h
+#include<iostream>
+using namespace std; 
+class Szachownica
+  {
+     friend class Figura;
+    protected:
+      Figura *sz[8][8];// tablica kontrolna zawierająca wskażniki do ustawionych figur
+      // NULL w przypadku gdy pole jest puste;
+      char wiz[8][8];// tablica do wizualizacji : 'O' pole puste 'X' pole bite , 'G'- polożenie gońca,
+      // 'W' - położenie wieży; zapisywane przez metodę range klasy Figura
+    public:
+      Szachownica()// tworzy pustą szachownicę: pola w tablicy sz ustawione na NULL , w tablicy wiz na 'O' 
+      {
+        clear();
+      }
+      void showRange(); // metoda wywołuje na wszystkich polach tablicy sz (różnych od NULL)
+      //metodę wirtualną range 
+      void display(); // wyświetla szachownnice (tablica wiz)
+      void clear();// tworzy pustą szachownice, wywołuje metode remove na wszystkich polach tablicy sz (różnych od NULL)
+    // UWAGA usunięcie figury nie oznacza usunięcie z pamięci - nie wywołujemy delete
+
+  };
+
+class Figura
+  { 
+
+    protected:
+        Szachownica *s; //figura zna swoją szachownice - ustawiane przez set
+        int x,y; // położenie na szachownicy ustawiane przez set 
+      bool set(int x,int y, char z)//pomocnicza uzywana przez range i set w sekcji public 
+                                   //UWAGA:(friend nie jest dziedziczony)
+        {
+        s->wiz[x][y]=z;//sprawdzic czy pole nie jest zajęte (zwracamy wtedy false)
+        return true;
+        }; 
+      bool set(int x,int y,Figura *f)// ustawia pole x,y tablicy sz na wskaźnik do klasy dziedziczącej z klasy Figura (Wieza , Goniec)
+        {
+        s->sz[x][y]=f;//sprawdzic czy pole nie jest zajęte (zwracamy wtedy false)
+        return true;
+        };
+    public:
+        Figura(){s==NULL;};
+        virtual bool set(Szachownica *s, int x_,int y_)=0; //metoda ustawia figure na szachownicy
+        // zwraca false gdy pole jest zajęte
+        // w tablicy wiz ustawia 'W' lub 'G' (dalsza część zadania)
+        // za pomocą set(int x,int y,Figura *f) ustawia pole w tablicy sz.
+
+        void remove()
+        {
+          s->sz[x][y]=s=NULL; 
+          s->wiz[x][y]='.';
+          s=NULL;// ustawia s na NULL - figura zdjęta z szachownicy 
+        };
+      virtual void range()=0;//pokazuje zasięg bicia na szachownicy - operuje na tablicy wiz 
+  // klasy Szachownica
+
+
+  };
+
+class Wieza : public Figura
+  {
+  public:
+    Wieza():Figura(){};
+    bool set(Szachownica *s_, int x_,int y_)
+    {
+      s=s_;
+      Figura::set(x_,y_,'W');
+      // wywołać set(int x,int y,Figura *f) z odpowiednim parametrem
+      return true;
+    }
+    void range();//zdefiniować zasięg bicia dla Wieży
+  };
+
+class Goniec : public Figura
+  {
+    // uzupełnić
+  }
+
+//szach.cpp 
+
+
+#include "stdafx.h"
+#include "lib_szach.h"
+
+
+void Szachownica::clear()
+  {
+    for(int i=0;i<8;i++)
+      for(int j=0;j<8;j++)
+        {
+          wiz[i][j]='.'; 
+          sz[i][j]=NULL;
+        };
+   };
+
+void Szachownica::display()
+  {
+    for(int i=0;i<8;i++)
+      {
+        for(int j=0;j<8;j++)
+          cout<<wiz[i][j];
+        cout<<endl;
+      }
+
+  // main.cpp
+
+
+#include "szach.h"
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main(int argc, char* argv[])
+  {
+
+  // uzupełnić 
+
+  }
+
+
+
+
+Uzuełnić i poprawić powyższy kod - dodać klasę Goniec która dzidziczy z klasy Figura zdefiniować metodę wirtualną showRange().
+
+Napisać program który tworzy dwie puste szachownice, na pierwszej ustawia gońca , na drugiej gońca i wieże ( w dowolnym miejscu),
+
+wyświetla te dwie szachownice; następnie wywołuje metodę showRange() i ponownie je wyświetl. 
+
+Na końcu wywołujemy metodę clear;
