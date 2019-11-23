@@ -55,13 +55,12 @@ void sfmlMAIN(Board board)
 					isMove = false;
 					secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
 					if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
-					board.pieces[indexY][indexX]->debug();
+					//function below check if we dropped the piece in a legal place, if yes - we move the piece pernamently. Otherwise, we revert
 					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)) {
 						board.move(indexX, indexY);
 						std::cout << "can move";
-					}
-					// if (Piece.canMove(indexX, indexY, /coord.x/, /coord.y/) Board.move(indexX, indexY, /coord.x/, /coord.y/)	//check and approve changes
-					else {								//and by doing so, we change the board.pieces[][] table, so changes are final
+					}			
+					else {								
 					board.pieces[indexY][indexX]->coord.x = indexX+1;	//we revert the changes
 					board.pieces[indexY][indexX]->coord.y = indexY+1;
 					}
@@ -70,8 +69,6 @@ void sfmlMAIN(Board board)
 		}
 		if (isMove) {	//moves a piece arround the board
 			if (position.x > 100 && position.x < 900 && position.y > 100 && position.y < 900) {
-				std::cout << position.x;
-				std::cout << position.y << std::endl;
 				board.pieces[indexY][indexX]->coord.x = position.x / 100;
 				board.pieces[indexY][indexX]->coord.y = position.y / 100;
 			}
