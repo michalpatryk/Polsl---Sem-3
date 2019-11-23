@@ -19,6 +19,7 @@ void sfmlMAIN(Board board)
 	int indexX = 0, indexY = 0;
 	std::vector<std::string> moveList;
 	std::string currentMove;	//get current move
+	bool isWhiteMove = true;
 
 	while (window.isOpen())
 	{
@@ -57,8 +58,19 @@ void sfmlMAIN(Board board)
 					if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
 					//function below check if we dropped the piece in a legal place, if yes - we move the piece pernamently. Otherwise, we revert
 					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)) {
-						board.move(indexX, indexY);
-						std::cout << "can move";
+						if (isWhiteMove == true && board.pieces[indexY][indexX]->returnColor() == Color::white) {
+							board.move(indexX, indexY);
+							isWhiteMove = false;
+						}
+						else if (isWhiteMove == false && board.pieces[indexY][indexX]->returnColor() == Color::black) {
+							board.move(indexX, indexY);
+							isWhiteMove = true;
+						}
+						else {
+							board.pieces[indexY][indexX]->coord.x = indexX + 1;	//we revert the changes
+							board.pieces[indexY][indexX]->coord.y = indexY + 1;
+						}
+						
 					}			
 					else {								
 					board.pieces[indexY][indexX]->coord.x = indexX+1;	//we revert the changes
