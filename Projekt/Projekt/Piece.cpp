@@ -42,6 +42,22 @@ void Piece::draw(sf::RenderWindow & window)
 {
 	sprite.setPosition(coord.x * 100 + 10, coord.y * 100 + 10);
 	window.draw(sprite);
+	//sf::CircleShape circle(40.f);		//costTable debug
+	//circle.setFillColor(sf::Color::Green);
+	//if (!costTable.empty() && isHeld == true) {
+	//	for (int i = 0; i < 8; i++) {
+	//		for (int j = 0; j < 8; j++) {
+	//			if (costTable[j][i] == 0 || costTable[j][i] == 1) {
+	//				circle.setPosition(100 + i * 100, 100 + j * 100);
+	//				window.draw(circle);
+	//			}
+	//		}
+	//	}
+	//}
+	
+
+	//
+	//do some possible move table drawing
 }
 
 void Piece::getSprite()

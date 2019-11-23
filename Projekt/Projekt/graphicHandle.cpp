@@ -43,6 +43,7 @@ void sfmlMAIN(Board board)
 								indexY = j;
 								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);	//move register
 								board.pieces[i][j]->loadCostTable(board.moveCost(board.pieces[i][j]->returnColor()));
+								//createPossibleMoveTable()
 							}
 						}
 					}
@@ -54,7 +55,11 @@ void sfmlMAIN(Board board)
 					isMove = false;
 					secondCoordAndVectorHandle(board.pieces[indexX][indexY]->coord.x, board.pieces[indexX][indexY]->coord.y, moveList, currentMove);	//move register
 					if(!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
-
+					// if (Piece.canMove(indexX, indexY, /coord.x/, /coord.y/) board.move(indexX, indexY, /coord.x/, /coord.y/)	//check and approve changes
+					// else {								//and by doing so, we change the board.pieces[][] table, so changes are final
+					//board.pieces[indexX][indexY]->coord.x = indexX;	//we revert the changes
+					//board.pieces[indexX][indexY]->coord.y = indexY;
+					//}
 				}
 			}
 		}

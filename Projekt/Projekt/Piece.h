@@ -9,24 +9,26 @@ class Piece
 {
 
 protected:
-	std::vector<std::vector<int>> costTable;
+	std::vector<std::vector<int>> costTable;	//general move costTable
+	std::vector<std::vector<int>> possibleMoveTable; //strict table for each kind of piece
 	Color color = Color::zero;
 	std::string getColorFilename();
 	virtual std::string getPieceFilename() { return ""; };
+	virtual void createPossibleMoveTable() {};
 public:
 
 	Coord coord;
 	sf::Sprite sprite;
 	sf::Texture texture;
 	bool isHeld = 0;	//makes sure the piece is rendered on top
-
+	//Constructors
 	Piece();
 	Piece(Color color_, int x_, int y_) : color(color_), 
 		coord{ x_,y_ } { };
 	~Piece();
-
+	//operators
 	Piece operator=(const Piece & piece_);
-
+	//innerworkings
 	void loadCostTable(std::vector<std::vector<int>> cT);
 	void draw(sf::RenderWindow & window);
 	void getSprite();
