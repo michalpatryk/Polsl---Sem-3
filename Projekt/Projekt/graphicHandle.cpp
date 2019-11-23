@@ -43,7 +43,7 @@ void sfmlMAIN(Board board)
 								indexY = j;
 								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);	//move register
 								board.pieces[i][j]->loadCostTable(board.moveCost(board.pieces[i][j]->returnColor()));
-								//createPossibleMoveTable()
+								board.pieces[i][j]->createPossibleMoveTable();
 							}
 						}
 					}

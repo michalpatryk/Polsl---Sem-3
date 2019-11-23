@@ -58,6 +58,18 @@ void Piece::draw(sf::RenderWindow & window)
 
 	//
 	//do some possible move table drawing
+	sf::CircleShape circle(40.f);		//costTable debug
+	circle.setFillColor(sf::Color::Green);
+	if (!possibleMoveTable.empty() && isHeld == true) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (possibleMoveTable[j][i] == true) {
+					circle.setPosition(100 + i * 100, 100 + j * 100);
+					window.draw(circle);
+				}
+			}
+		}
+	}
 }
 
 void Piece::getSprite()
