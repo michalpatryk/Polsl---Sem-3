@@ -40,8 +40,7 @@ void Piece::loadCostTable(std::vector<std::vector<int>> cT)
 
 void Piece::draw(sf::RenderWindow & window)
 {
-	sprite.setPosition(coord.x * 100 + 10, coord.y * 100 + 10);
-	window.draw(sprite);
+	
 	//sf::CircleShape circle(40.f);		//costTable debug
 	//circle.setFillColor(sf::Color::Green);
 	//if (!costTable.empty() && isHeld == true) {
@@ -70,6 +69,8 @@ void Piece::draw(sf::RenderWindow & window)
 			}
 		}
 	}
+	sprite.setPosition(coord.x * 100 + 10, coord.y * 100 + 10);
+	window.draw(sprite);
 }
 
 void Piece::getSprite()
