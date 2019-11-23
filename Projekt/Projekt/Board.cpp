@@ -106,6 +106,18 @@ void Board::drawPieces(sf::RenderWindow & window)
 	if (priority == true) pieces[priorityX][prioriryY]->draw(window);
 }
 
+void Board::move(int initX, int initY)
+{
+	int tX = pieces[initY][initX]->coord.x;
+	int tY = pieces[initY][initX]->coord.y;
+	if (pieces[tY][tX] != nullptr) {}//enter killing protocol
+	else {
+		pieces[tY][tX] = pieces[initY][initX];
+	}
+	
+	
+}
+
 std::vector<std::vector<int>> Board::moveCost(Color c)
 {
 	std::vector<std::vector<int>> varr(8, std::vector<int>(8));	//create 2d vector of size [8][8]

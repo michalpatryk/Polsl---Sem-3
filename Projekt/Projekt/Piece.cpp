@@ -38,6 +38,12 @@ void Piece::loadCostTable(std::vector<std::vector<int>> cT)
 	costTable = cT;
 }
 
+bool Piece::canMove(int x, int y)
+{
+	if (!possibleMoveTable.empty() && possibleMoveTable[x][y] == true) return true;
+	else return false;
+}
+
 void Piece::draw(sf::RenderWindow & window)
 {
 	

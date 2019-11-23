@@ -33,6 +33,7 @@ public:
 	virtual void createPossibleMoveTable() {};	//Explaination here for all child classes:
 												//We create a 2d array that contains either 1 if move is possible to this position
 												// or 0 if the move is impossible
+	bool canMove(int x, int y);
 	void draw(sf::RenderWindow & window);
 	void getSprite();
 	

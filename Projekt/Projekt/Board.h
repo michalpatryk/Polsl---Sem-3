@@ -14,6 +14,7 @@ public:
 	~Board();
 	void draw(sf::RenderWindow & window);
 	void drawPieces(sf::RenderWindow &window);
+	void move(int initX, int initY);
 
 	std::vector<std::vector<int>> moveCost(Color c);
 
