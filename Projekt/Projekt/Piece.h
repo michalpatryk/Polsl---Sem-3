@@ -25,6 +25,7 @@ public:
 	Piece();
 	Piece(Color color_, int x_, int y_) : color(color_), 
 		coord{ x_,y_ } { };
+	Piece(Piece *p);
 	~Piece();
 	//operators
 	Piece operator=(const Piece & piece_);

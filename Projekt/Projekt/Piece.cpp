@@ -23,6 +23,13 @@ Piece::Piece()
 }
 
 
+Piece::Piece(Piece * p)
+{
+	color = p->color;
+	coord.x = p->coord.x;
+	coord.y = p->coord.y;
+}
+
 Piece::~Piece()
 {
 }
@@ -38,9 +45,11 @@ void Piece::loadCostTable(std::vector<std::vector<int>> cT)
 	costTable = cT;
 }
 
-bool Piece::canMove(int x, int y)
+bool Piece::canMove(int x, int y)	
 {
-	if (!possibleMoveTable.empty() && possibleMoveTable[x][y] == true) return true;
+	x -= 1; y -= 1; //we are receiving data in 1-8 system, we must change it to 0-7
+
+	if (!possibleMoveTable.empty() && possibleMoveTable[y][x] == true) return true;
 	else return false;
 }
 

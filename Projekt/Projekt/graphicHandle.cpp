@@ -24,10 +24,10 @@ void sfmlMAIN(Board board)
 	{
 		sf::Vector2i position = sf::Mouse::getPosition(window);
 		sf::Event event;
-		
+
 		while (window.pollEvent(event))
 		{
-			
+
 			if (event.type == sf::Event::Closed)
 				window.close();
 
@@ -35,12 +35,12 @@ void sfmlMAIN(Board board)
 				if (event.key.code == sf::Mouse::Left) {		//Left mouse button
 					for (int i = 0; i < 8; i++) {				//Now we lapse through every sprite we can find
 						for (int j = 0; j < 8; j++) {
-							if(board.pieces[i][j]!=nullptr &&	//Check if its in right position
+							if (board.pieces[i][j] != nullptr &&	//Check if its in right position
 								board.pieces[i][j]->sprite.getGlobalBounds().contains(position.x, position.y)) {
 								board.pieces[i][j]->isHeld = 1;	//will allow us to display possible moves
 								isMove = true;					//changing isMove flag so that the piece floats to where our mouse is
-								indexX = i;						//tells the X coord of currently moving piece
-								indexY = j;
+								indexY = i;						//tells the X coord of currently moving piece
+								indexX = j;
 								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);	//move register
 								board.pieces[i][j]->loadCostTable(board.moveCost(board.pieces[i][j]->returnColor()));
 								board.pieces[i][j]->createPossibleMoveTable();		//10% done, only pawn working
@@ -50,25 +50,33 @@ void sfmlMAIN(Board board)
 				}
 			}
 			if (event.type == sf::Event::MouseButtonReleased) {
-				if (event.key.code == sf::Mouse::Left) {	//releases piece
-					board.pieces[indexX][indexY]->isHeld = 0;
+				if (event.key.code == sf::Mouse::Left && board.pieces[indexY][indexX] != nullptr) {	//releases piece
+					board.pieces[indexY][indexX]->isHeld = 0;
 					isMove = false;
-					secondCoordAndVectorHandle(board.pieces[indexX][indexY]->coord.x, board.pieces[indexX][indexY]->coord.y, moveList, currentMove);	//move register
-					if(!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
-//					if (board.pieces[indexX][indexY]->canMove(indexX, indexY)) board.move(indexX, indexY);
+					secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
+					if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
+					board.pieces[indexY][indexX]->debug();
+					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)) {
+						board.move(indexX, indexY);
+						std::cout << "can move";
+					}
 					// if (Piece.canMove(indexX, indexY, /coord.x/, /coord.y/) Board.move(indexX, indexY, /coord.x/, /coord.y/)	//check and approve changes
-					// else {								//and by doing so, we change the board.pieces[][] table, so changes are final
-					//board.pieces[indexX][indexY]->coord.x = indexX;	//we revert the changes
-					//board.pieces[indexX][indexY]->coord.y = indexY;
-					//}
+					else {								//and by doing so, we change the board.pieces[][] table, so changes are final
+					board.pieces[indexY][indexX]->coord.x = indexX+1;	//we revert the changes
+					board.pieces[indexY][indexX]->coord.y = indexY+1;
+					}
 				}
 			}
 		}
 		if (isMove) {	//moves a piece arround the board
-			board.pieces[indexX][indexY]->coord.x = position.x/100;
-			board.pieces[indexX][indexY]->coord.y = position.y/100;
+			if (position.x > 100 && position.x < 900 && position.y > 100 && position.y < 900) {
+				std::cout << position.x;
+				std::cout << position.y << std::endl;
+				board.pieces[indexY][indexX]->coord.x = position.x / 100;
+				board.pieces[indexY][indexX]->coord.y = position.y / 100;
+			}
 		}
-		
+
 		window.clear();
 		board.draw(window);
 		board.drawPieces(window);
@@ -93,7 +101,7 @@ std::string firstCoord(PieceType p, int x, int y)
 	r += (char)x;		//^
 	y -= 9;				//flip coordinates eq 1 to 8, 2 to 7 etc
 	y *= -1;
-	r += std::to_string(y);		
+	r += std::to_string(y);
 	r += "-";
 	return r;
 }
@@ -109,6 +117,6 @@ void secondCoordAndVectorHandle(int x, int y, std::vector<std::string>& v, std::
 		v.push_back(s);
 	}
 	s.clear();
-	
+
 }
 

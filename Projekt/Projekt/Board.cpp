@@ -108,11 +108,18 @@ void Board::drawPieces(sf::RenderWindow & window)
 
 void Board::move(int initX, int initY)
 {
-	int tX = pieces[initY][initX]->coord.x;
-	int tY = pieces[initY][initX]->coord.y;
-	if (pieces[tY][tX] != nullptr) {}//enter killing protocol
+	int tX = pieces[initY][initX]->coord.x-1;	//coord is 1-8, changing to 0-7
+	int tY = pieces[initY][initX]->coord.y-1;
+	if (pieces[tY][tX] != nullptr) {	//enter killing protocol
+		Piece temp{ pieces[tY][tX] };
+		lost.push_back(temp);
+		delete pieces[tY][tX];
+		pieces[tY][tX] = pieces[initY][initX];
+		pieces[initY][initX] = nullptr;
+	}
 	else {
 		pieces[tY][tX] = pieces[initY][initX];
+		pieces[initY][initX] = nullptr;
 	}
 	
 	
