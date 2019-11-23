@@ -106,27 +106,25 @@ void Board::drawPieces(sf::RenderWindow & window)
 	if (priority == true) pieces[priorityX][prioriryY]->draw(window);
 }
 
-int ** Board::moveCost(Color c)
+std::vector<std::vector<int>> Board::moveCost(Color c)
 {
-	int** arr = new int*[8];
-	for (int i = 0; i < 8; i++) {
-		arr[i] = new int[8];
-	}
-	int whiteCost, blackCost;
-	if (c == Color::white) { whiteCost = 2; blackCost = 1; }
+	std::vector<std::vector<int>> varr(8, std::vector<int>(8));	//create 2d vector of size [8][8]
+					//at the beggining the function was done with new and delete, but using std::vector is much more intuitive and safer
+
+	int whiteCost, blackCost;		//set the cost of a given color. Makes the function universal
+	if (c == Color::white) { whiteCost = 2; blackCost = 1; }	//if color == same as my piece, cost is 2
 	else if (c == Color::black) { whiteCost = 1; blackCost = 2; }
 
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < 8; i++) {	//assign cost to each location
 		for (int j = 0; j < 8; j++) {
 			if (this->pieces[i][j] != nullptr) {
-				if (this->pieces[i][j]->returnColor() == Color::white) { arr[i][j] = whiteCost; }
-				else if (this->pieces[i][j]->returnColor() == Color::black) { arr[i][j] = blackCost; }
+				if (this->pieces[i][j]->returnColor() == Color::white) { varr[i][j] = whiteCost; }
+				else if (this->pieces[i][j]->returnColor() == Color::black) { varr[i][j] = blackCost; }
 			}
-			else arr[i][j] = 0;
+			else varr[i][j] = 0;
 		}
 	}
-
-	return arr;
+	return varr;
 }
 
 
