@@ -10,5 +10,6 @@ public:
 	void debug();
 	PieceType returnType() { return piece; };
 	std::string getPieceFilename() { return "/Rook.png"; };
+	void createPossibleMoveTable();
 };
 

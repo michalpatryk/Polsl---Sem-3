@@ -29,12 +29,11 @@ void Pawn::createPossibleMoveTable()
 		&& costTable[coord.y - 1 +  dy][coord.x - 1] < 1)	
 		if ((coord.y == 2 && color == Color::black) || (coord.y == 7 && color == Color::white))
 			possibleMoveTable[coord.y - 1 + 2 * dy][coord.x - 1] = true;
-
-																											//killing left or right
+																										//killing left or right
 	if (coord.y + dy < 9 && coord.y + dy > 0) {//only one forward
-		if (coord.x - 1 > 0 && coord.y + 1 < 9) {//one left or right
+		if (coord.x - 1 > 0) //one left or right
 			if (costTable[coord.y - 1 + dy][coord.x - 1 - 1] == 1)		possibleMoveTable[coord.y - 1 + dy][coord.x - 1 - 1 ] = true;
+		if(coord.x + 1 < 9)
 			if (costTable[coord.y - 1 + dy][coord.x - 1 + 1] == 1)		possibleMoveTable[coord.y - 1 + dy][coord.x - 1 + 1 ] = true;
-		}
 	}
 }
