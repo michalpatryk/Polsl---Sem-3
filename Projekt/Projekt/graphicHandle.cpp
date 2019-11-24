@@ -56,7 +56,7 @@ void sfmlMAIN(Board board)
 					isMove = false;
 					secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
 					if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
-					//function below check if we dropped the piece in a legal place, if yes - we move the piece pernamently. Otherwise, we revert
+					//function below checks if we dropped the piece in a legal place, if yes - we move the piece pernamently. Otherwise, we revert
 					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)) {
 						if (isWhiteMove == true && board.pieces[indexY][indexX]->returnColor() == Color::white) {
 							board.move(indexX, indexY);
