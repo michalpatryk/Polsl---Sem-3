@@ -57,24 +57,16 @@ void sfmlMAIN(Board board)
 					secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
 					if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
 					//function below checks if we dropped the piece in a legal place, if yes - we move the piece pernamently. Otherwise, we revert
-					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)) {
-						if (isWhiteMove == true && board.pieces[indexY][indexX]->returnColor() == Color::white) {
+					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)
+						&& ((isWhiteMove == true && board.pieces[indexY][indexX]->returnColor() == Color::white)
+							|| (isWhiteMove == false && board.pieces[indexY][indexX]->returnColor() == Color::black))) {
 							board.move(indexX, indexY);
-							isWhiteMove = false;
-						}
-						else if (isWhiteMove == false && board.pieces[indexY][indexX]->returnColor() == Color::black) {
-							board.move(indexX, indexY);
-							isWhiteMove = true;
-						}
-						else {
-							board.pieces[indexY][indexX]->coord.x = indexX + 1;	//we revert the changes
-							board.pieces[indexY][indexX]->coord.y = indexY + 1;
-						}
-						
-					}			
-					else {								
-					board.pieces[indexY][indexX]->coord.x = indexX+1;	//we revert the changes
-					board.pieces[indexY][indexX]->coord.y = indexY+1;
+							isWhiteMove = !isWhiteMove;
+
+					}
+					else {
+						board.pieces[indexY][indexX]->coord.x = indexX + 1;	//we revert the changes
+						board.pieces[indexY][indexX]->coord.y = indexY + 1;
 					}
 				}
 			}
@@ -85,6 +77,7 @@ void sfmlMAIN(Board board)
 				board.pieces[indexY][indexX]->coord.y = position.y / 100;
 			}
 		}
+
 
 		window.clear();
 		board.draw(window);
