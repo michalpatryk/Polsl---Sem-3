@@ -54,19 +54,22 @@ void sfmlMAIN(Board board)
 				if (event.key.code == sf::Mouse::Left && board.pieces[indexY][indexX] != nullptr) {	//releases piece
 					board.pieces[indexY][indexX]->isHeld = 0;
 					isMove = false;
-					secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
-					if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
 					//function below checks if we dropped the piece in a legal place, if yes - we move the piece pernamently. Otherwise, we revert
+					//it also checks if the color matches the one that should move now, by using (  (legal) && ((color1) || (color2))  )
 					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)
 						&& ((isWhiteMove == true && board.pieces[indexY][indexX]->returnColor() == Color::white)
 							|| (isWhiteMove == false && board.pieces[indexY][indexX]->returnColor() == Color::black))) {
+
+						secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
+						if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
 						board.move(indexX, indexY);
 						isWhiteMove = !isWhiteMove;
-
+						
 					}
 					else {
 						board.pieces[indexY][indexX]->coord.x = indexX + 1;	//we revert the changes
 						board.pieces[indexY][indexX]->coord.y = indexY + 1;
+						currentMove.clear();
 					}
 				}
 			}
@@ -126,7 +129,7 @@ void secondCoordAndVectorHandle(int x, int y, std::vector<std::string>& v, std::
 void colorDisplay(bool isWhite, sf::RenderWindow & window)
 {
 	sf::CircleShape circle(50.f);	
-	sf::Color color(10, 10, 10);
+	sf::Color color(10, 10, 0);
 	if(isWhite) circle.setFillColor(sf::Color::White);
 	else circle.setFillColor(color);
 	circle.setPosition(0, 0);
