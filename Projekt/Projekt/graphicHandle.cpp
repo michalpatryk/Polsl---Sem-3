@@ -60,8 +60,8 @@ void sfmlMAIN(Board board)
 					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)
 						&& ((isWhiteMove == true && board.pieces[indexY][indexX]->returnColor() == Color::white)
 							|| (isWhiteMove == false && board.pieces[indexY][indexX]->returnColor() == Color::black))) {
-							board.move(indexX, indexY);
-							isWhiteMove = !isWhiteMove;
+						board.move(indexX, indexY);
+						isWhiteMove = !isWhiteMove;
 
 					}
 					else {
@@ -80,6 +80,7 @@ void sfmlMAIN(Board board)
 
 
 		window.clear();
+		colorDisplay(isWhiteMove, window);
 		board.draw(window);
 		board.drawPieces(window);
 		window.display();
@@ -120,5 +121,16 @@ void secondCoordAndVectorHandle(int x, int y, std::vector<std::string>& v, std::
 	}
 	s.clear();
 
+}
+
+void colorDisplay(bool isWhite, sf::RenderWindow & window)
+{
+	sf::CircleShape circle(50.f);	
+	sf::Color color(10, 10, 10);
+	if(isWhite) circle.setFillColor(sf::Color::White);
+	else circle.setFillColor(color);
+	circle.setPosition(0, 0);
+	window.draw(circle);
+	
 }
 

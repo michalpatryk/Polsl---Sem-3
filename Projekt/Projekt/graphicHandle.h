@@ -9,3 +9,4 @@ void sfmlMAIN(Board board);
 
 std::string firstCoord(PieceType p, int x, int y);
 void secondCoordAndVectorHandle(int x, int y, std::vector<std::string> & v, std::string & s);
+void colorDisplay(bool isWhite, sf::RenderWindow & window);
