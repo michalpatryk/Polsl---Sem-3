@@ -17,4 +17,11 @@ int main() {
 	szachownica.display();
 	std::cout << " ====== " << std::endl;
 	//GONIEC tests
+	Goniec g1{};
+	g1.set(&szachownica, 3, 3);
+	szachownica.display();
+	std::cout << " ====== " << std::endl;
+	g1.range();
+	szachownica.display();
+	std::cout << " ====== " << std::endl;
 }
