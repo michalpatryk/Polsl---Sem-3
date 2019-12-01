@@ -19,3 +19,10 @@ bool Figura::set(int x_, int y_, Figura * f)
 	}
 	else return false;
 }
+
+void Figura::remove()
+{
+	s->sz[x][y] = nullptr;
+	s->wiz[x][y] = '.';
+	s = nullptr;
+}
