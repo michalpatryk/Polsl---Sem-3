@@ -3,11 +3,8 @@
 #include <iostream>
 bool Figura::set(int x_, int y_, char z)
 {
-	if (x_ < 8 && x_>0 && y_ < 8 && y_>0 && s->sz[x_][y_] == nullptr) {
-		s->wiz[x_][y_] = z;
-		return true;
-	}
-	else return false;
+	s->wiz[x_][y_] = z;
+	return true;
 }
 
 bool Figura::set(int x_, int y_, Figura * f)

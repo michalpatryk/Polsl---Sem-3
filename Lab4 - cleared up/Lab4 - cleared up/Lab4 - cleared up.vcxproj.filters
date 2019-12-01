@@ -32,6 +32,9 @@
     <ClCompile Include="Wieza.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Goniec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Szachownica.h">
@@ -41,6 +44,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Wieza.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Goniec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

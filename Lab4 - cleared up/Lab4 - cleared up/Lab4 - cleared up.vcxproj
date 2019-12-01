@@ -123,12 +123,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Figura.cpp" />
+    <ClCompile Include="Goniec.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Szachownica.cpp" />
     <ClCompile Include="Wieza.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Figura.h" />
+    <ClInclude Include="Goniec.h" />
     <ClInclude Include="Szachownica.h" />
     <ClInclude Include="Wieza.h" />
   </ItemGroup>
