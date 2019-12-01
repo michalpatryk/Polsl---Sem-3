@@ -11,5 +11,8 @@ protected:
 	bool set(int x_, int y_, Figura *f);
 public:
 	Figura();
+	void remove();
+	virtual void range() {};	//each figure has its own range
+	friend class Szachownica;
 };
 
