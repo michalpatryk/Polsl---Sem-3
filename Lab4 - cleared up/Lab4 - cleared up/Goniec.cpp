@@ -5,7 +5,7 @@ bool Goniec::set(Szachownica * s_, int x_, int y_)
 {
 	s = s_;
 	if (Figura::set(x_, y_, this)) {
-		Figura::set(x_, y_, 'W');
+		Figura::set(x_, y_, 'G');
 		return true;
 	}
 	return false;
