@@ -6,7 +6,8 @@
 class Szachownica
 {
 	friend class Figura;
-
+public:	//https://developercommunity.visualstudio.com/content/problem/77850/accessing-a-private-member-variable-from-a-friend.html
+		//due to some bug. even though Wieza uses friend class Szachownica, it cant acces sz and wiz
 	Figura *sz[8][8];// tablica kontrolna zawierająca wskażniki do ustawionych figur
 	// nullptr w przypadku gdy pole jest puste;
 	char wiz[8][8];// tablica do wizualizacji : 'O' pole puste 'X' pole bite , 'G'- polożenie gońca,

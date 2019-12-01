@@ -1,5 +1,5 @@
 #pragma once
-#include "Szachownica.h"
+//#include "Szachownica.h"
 class Szachownica;
 
 class Figura
@@ -10,9 +10,9 @@ protected:
 	bool set(int x_, int y_, char z);
 	bool set(int x_, int y_, Figura *f);
 public:
-	Figura();
+	Figura() { s = nullptr; x = 0; y = 0; };
 	void remove();
-	virtual void range() {};	//each figure has its own range
+	virtual void range() = 0;	//each figure has its own range
 	friend class Szachownica;
 };
 

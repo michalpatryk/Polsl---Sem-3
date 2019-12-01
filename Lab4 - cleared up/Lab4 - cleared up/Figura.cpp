@@ -1,4 +1,5 @@
 #include "Figura.h"
+#include "Szachownica.h"
 #include <iostream>
 bool Figura::set(int x_, int y_, char z)
 {
