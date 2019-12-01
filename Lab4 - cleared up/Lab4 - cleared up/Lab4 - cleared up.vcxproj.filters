@@ -29,12 +29,18 @@
     <ClCompile Include="Figura.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Wieza.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Szachownica.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Figura.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wieza.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

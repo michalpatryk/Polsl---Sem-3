@@ -2,6 +2,8 @@
 #include "Szachownica.h"
 
 int main() {
-	std::cout << "Test";
-	Szachownica szachownica;
+	std::cout << "Test" << std::endl;
+	Szachownica szachownica{};
+	szachownica.display();	//display() empty test
+
 }
