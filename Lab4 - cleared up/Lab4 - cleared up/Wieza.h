@@ -9,6 +9,6 @@ public:
 	bool set(Szachownica *s_, int x_, int y_);
 	
 	void range();//zdefiniować zasięg bicia dla Wieży
-
+	friend class Szachownica; //friend is not hereditary, so it must be declared again
 };
 
