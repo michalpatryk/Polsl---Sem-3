@@ -136,4 +136,3 @@ void colorDisplay(bool isWhite, sf::RenderWindow & window)
 	window.draw(circle);
 	
 }
-
