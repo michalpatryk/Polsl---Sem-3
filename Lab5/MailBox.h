@@ -17,7 +17,7 @@ class  MailBox
 
 public:
 	MailBox(std::string& name_of_logfile, std::string& name_of_backupfile); // je¿eli plik backup  ju¿ istnieje wczytuje go do mbox
-	~MailBox() {}; // zapisuje wszystkie wiadomoœci do backup i usuwa z pamiêci
+	~MailBox(); // zapisuje wszystkie wiadomoœci do backup i usuwa z pamiêci
 	// Uwaga poni¿sze metody musz¹ byæ w osobnym pliku:
 
 	bool send(std::string &msg, User *sender, User * reciever) // uzytkownik sender wysyla wiadomosc msg do uzytkownika reciever

@@ -1,5 +1,5 @@
 #include "MailBox.h"
-#include <iostream>
+
 MailBox::MailBox(std::string & name_of_logfile, std::string & name_of_backupfile)
 // je¿eli plik backup  ju¿ istnieje wczytuje go do mbox
 {
@@ -18,4 +18,11 @@ MailBox::MailBox(std::string & name_of_logfile, std::string & name_of_backupfile
 	}
 
 	log = std::ofstream(name_of_logfile);
+}
+
+MailBox::~MailBox()
+{
+	for (int i = 0; i < mbox->length(); i++) {
+		log << mbox[i] << std::endl;
+	}
 }
