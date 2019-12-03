@@ -10,13 +10,13 @@ class User; // UWAGA zale¿noœæ miêdzy obiektami
 class  MailBox
 {
 	// friend class User; ewntualne uzycie seterów i geterów
-	std::string *mbox[N]; //tablica wiadomoœci od  uzytkownikow skrzynki
+	std::string mbox[N]; //tablica wiadomoœci od  uzytkownikow skrzynki
 					// indeksem tablicy jest id uzytkownika
 	std::ofstream log; //plik z raportem
 	std::ofstream backup; // zawartoœæ mbox do pliku backup gdy usuwamy obiekt
 
 public:
-	MailBox(std::string& name_of_logfile, std::string& name_of_backupfile) {}; // je¿eli plik backup  ju¿ istnieje wczytuje go do mbox
+	MailBox(std::string& name_of_logfile, std::string& name_of_backupfile); // je¿eli plik backup  ju¿ istnieje wczytuje go do mbox
 	~MailBox() {}; // zapisuje wszystkie wiadomoœci do backup i usuwa z pamiêci
 	// Uwaga poni¿sze metody musz¹ byæ w osobnym pliku:
 

@@ -10,7 +10,7 @@ class *User; // UWAGA zale¿noœæ miêdzy obiektami
 class  MailBox
   {
     // friend class User; ewntualne uzycie seterów i geterów
-    string *mbox[N]; //tablica wiadomoœci od  uzytkownikow skrzynki
+    string mbox[N]; //tablica wiadomoœci od  uzytkownikow skrzynki
                     // indeksem tablicy jest id uzytkownika
     ofstream log; //plik z raportem
     ofstream backup; // zawartoœæ mbox do pliku backup gdy usuwamy obiekt
@@ -59,7 +59,7 @@ class  User
 
      bool receive()// pobieram wiadomoœæ ze skrzynki
       {
-         mb->send(this); // wywo³ujemy send w klasie Mbox
+         mb->receive(this); // wywo³ujemy send w klasie Mbox
          // wyœwietla wiadomoœæ na ekranie
          // nastêpnie usuwa
       }
