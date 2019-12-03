@@ -63,7 +63,7 @@ class  User
          // wyœwietla wiadomoœæ na ekranie
          // nastêpnie usuwa
       }
-
+}
       
 
   W funkcji main() utworzyæ  skrzynke: mbox  oraz 4 u¿ytkowników A, B ,C i D.
