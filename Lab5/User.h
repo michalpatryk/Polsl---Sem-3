@@ -13,7 +13,9 @@ public:
 	User(MailBox *mb_, std::string & nickname_)//
 	{
 		myid = id++; //przypisanie unikalnego id
+		nickname = nickname_;
 		// nadanie nazwy u¿ytkownikowi
+		mb = mb_;
 		// przypisanie skrzynki zdefiniowanej wczeœniej
 	}
 
