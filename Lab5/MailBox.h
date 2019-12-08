@@ -16,8 +16,11 @@ class  MailBox
 	std::ofstream backup; // zawartoœæ mbox do pliku backup gdy usuwamy obiekt
 
 public:
-	MailBox(std::string& name_of_logfile, std::string& name_of_backupfile); // je¿eli plik backup  ju¿ istnieje wczytuje go do mbox
-	~MailBox(); // zapisuje wszystkie wiadomoœci do backup i usuwa z pamiêci
+	MailBox(std::string& name_of_logfile, std::string& name_of_backupfile); //! done
+	// je¿eli plik backup  ju¿ istnieje wczytuje go do mbox	
+	
+	~MailBox(); //!done
+	// zapisuje wszystkie wiadomoœci do backup i usuwa z pamiêci
 	// Uwaga poni¿sze metody musz¹ byæ w osobnym pliku:
 
 	bool send(std::string &msg, User *sender, User * reciever) // uzytkownik sender wysyla wiadomosc msg do uzytkownika reciever
@@ -31,7 +34,8 @@ public:
 	}
 	std::string * receive(User *user); // zwraca NULL w przypadku b³êdu - indeks poza zakresem, 
 								   //lub gdy niema wiadomoœæ dla tego u¿ytkownika
-	void print(); // wyœietla wszystkie wiadomoœci w skrynce
+	void print(); //! done
+	// wyœietla wszystkie wiadomoœci w skrynce
 };
 
 

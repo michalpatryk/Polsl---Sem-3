@@ -26,3 +26,10 @@ MailBox::~MailBox()
 		log << mbox[i] << std::endl;
 	}
 }
+
+void MailBox::print()
+{
+	for (int i = 0; i < N; i++) {
+		std::cout << mbox[i] << std::endl;
+	}
+}
