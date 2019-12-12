@@ -16,7 +16,7 @@ protected:
 	virtual std::string getPieceFilename() { return ""; };
 	
 public:
-
+	
 	Coord coord;
 	sf::Sprite sprite;
 	sf::Texture texture;
