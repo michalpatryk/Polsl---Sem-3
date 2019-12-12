@@ -10,7 +10,7 @@
 
 int main() 
 {
-	Board board;
+	Board board;//dont comment
 	
 	sfmlMAIN(board);
 	{
