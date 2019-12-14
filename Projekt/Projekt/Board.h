@@ -2,6 +2,7 @@
 #include "Piece.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "microVector.h"
 
 class Board
 {

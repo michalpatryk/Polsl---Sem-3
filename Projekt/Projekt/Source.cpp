@@ -14,7 +14,7 @@ int main()
 	
 	sfmlMAIN(board);
 	{
-		MicroVector<int> tester{ 5 };
+		MicroVector<int> tester{};
 		int i = 0, j = 5, c = 2;
 		tester.push_back(i);
 		tester.push_back(j);

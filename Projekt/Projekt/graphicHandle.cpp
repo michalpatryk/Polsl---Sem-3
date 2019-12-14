@@ -3,7 +3,7 @@
 #include "Board.h"
 #include <iostream>
 #include <vector>
-
+#include "microVector.h"
 #define HEIGHT 1000
 #define WIDTH 1000
 void sfmlINIT()
@@ -13,7 +13,7 @@ void sfmlINIT()
 
 void sfmlMAIN(Board board)
 {
-	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Chess", sf::Style::Close);	//we create a window here
+	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Chess", sf::Style::Titlebar);	//we create a window here
 	float dx = 0, dy = 0;
 	bool isMove = 0;
 	int indexX = 0, indexY = 0;

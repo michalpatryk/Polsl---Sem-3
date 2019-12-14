@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Board.h"
+#include "microVector.h"
 
 void sfmlINIT();
 void sfmlMAIN(Board board);

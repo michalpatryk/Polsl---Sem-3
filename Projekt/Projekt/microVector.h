@@ -17,7 +17,6 @@ public:
 };
 
 
-#endif // ! MicroVector
 
 template<class T>
 
@@ -56,3 +55,4 @@ inline MicroVector<T>::~MicroVector()
 	std::cout << "Deleting";
 	delete[] vecArray;
 }
+#endif // ! MicroVector
