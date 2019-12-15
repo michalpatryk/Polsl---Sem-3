@@ -56,6 +56,16 @@ bool MailBox::send(std::string & msg, User * sender, User * reciever)
 	return false;
 }
 
+std::string * MailBox::receive(User * user)
+// zwraca NULL w przypadku b³êdu - indeks poza zakresem, 
+	 //lub gdy niema wiadomoœæ dla tego u¿ytkownika
+{
+	if (user->getMyID() < 10) {
+		if (!mbox[user->getMyID()].empty()) return &mbox[user->getMyID()];		//!Only recieve, no deletion here
+	}
+	return nullptr;
+}
+
 void MailBox::print()
 {
 	for (int i = 0; i < N; i++) {
