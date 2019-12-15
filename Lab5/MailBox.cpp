@@ -8,24 +8,30 @@ MailBox::MailBox(std::string & name_of_logfile, std::string & name_of_backupfile
 	std::ifstream ifs(name_of_backupfile);
 	if (ifs) {
 		int i = 0;
+		std::string temp;
 		std::cout << "Loading old file" << std::endl;
-		while (ifs >> mbox[i]) {
-			i++;
-			std::cout << "Line loaded" << std::endl;
+		while (ifs >> temp && i < N) {
+			mbox[i] += temp;
+			int x = mbox[i].length();
+			if (mbox[i][x] == 'n' && mbox[i][x - 1] == '\\') {
+				i++;
+			}
 		}
+		std::cout << "Line loaded" << std::endl;
 	}
+
 	else {
 		std::cout << "CREATING NEW FILE" << std::endl;
 		backup = std::ofstream(name_of_backupfile);
 	}
-
+	backup = std::ofstream(name_of_backupfile);
 	log = std::ofstream(name_of_logfile);
 }
 
 MailBox::~MailBox()
 {
 	for (int i = 0; i < mbox->length(); i++) {
-		log << mbox[i] << std::endl;
+		backup << mbox[i] << std::endl;
 	}
 }
 
@@ -40,15 +46,21 @@ bool MailBox::send(std::string & msg, User * sender, User * reciever)
 
 	std::time_t t = std::time(0);	//get current time
 	log << "\nSend time: " << std::ctime(&t) << "Sender ID: " << sender->getMyID() << "\nSender Name: " << sender->getNickname() <<
-		"\nReciever ID: " << reciever->getMyID() << "\nReciver Name: " << reciever->getNickname();
+		"\nReciever ID: " << reciever->getMyID() << "\nReciver Name: " << reciever->getNickname() << std::endl;
+	//std::cout << "Sender: " << sender->getMyID() << "Receiver: " << reciever->getMyID() << std::endl;
 
-
-	if ((sender->getMyID() < 10 && reciever->getMyID() < 10) ) {
+	if ((sender->getMyID() < 10 && reciever->getMyID() < 10)) {
 		if (sender->getMyID() != reciever->getMyID()) {
-			if (mbox[reciever->getMyID()].empty()) { mbox[reciever->getMyID()] = msg; }
-			else { 
+			mbox[reciever->getMyID()];
+			if (mbox[reciever->getMyID()].empty()) {
+
+				mbox[reciever->getMyID()] = msg;
+				return true;
+			}
+			else {
 				mbox[reciever->getMyID()] += "\n***********\n";
 				mbox[reciever->getMyID()] += msg;
+				return true;
 			}
 		}
 	}

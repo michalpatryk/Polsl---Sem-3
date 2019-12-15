@@ -1,28 +1,36 @@
 
-Send time: Sun Dec 15 17:11:20 2019
+Send time: Sun Dec 15 19:46:49 2019
 Sender ID: 0
 Sender Name: Jack
 Reciever ID: 1
 Reciver Name: Kcaj
-Send time: Sun Dec 15 17:11:20 2019
+
+Send time: Sun Dec 15 19:46:49 2019
 Sender ID: 0
 Sender Name: Jack
 Reciever ID: 1
 Reciver Name: Kcaj
-Send time: Sun Dec 15 17:11:20 2019
+
+Send time: Sun Dec 15 19:46:49 2019
 Sender ID: 0
 Sender Name: Jack
 Reciever ID: 1
 Reciver Name: Kcaj
-Send time: Sun Dec 15 17:11:20 2019
+
+Send time: Sun Dec 15 19:46:49 2019
 Sender ID: 1
 Sender Name: Kcaj
 Reciever ID: 0
-Reciver Name: JackJack
-backupfile.txt
-***********
-logfile.txt
-***********
-Kcaj
+Reciver Name: Jack
 
+Send time: Sun Dec 15 19:46:49 2019
+Sender ID: 0
+Sender Name: Jack
+Reciever ID: 1
+Reciver Name: Kcaj
 
+Send time: Sun Dec 15 19:46:49 2019
+Sender ID: 1
+Sender Name: Kcaj
+Reciever ID: 1
+Reciver Name: Kcaj

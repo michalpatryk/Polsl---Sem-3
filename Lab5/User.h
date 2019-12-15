@@ -22,7 +22,8 @@ public:
 
 	bool send(std::string &msg, User & reciever)//! done?
 	{
-		mb->send(msg, this, &reciever); // wywo³ujemy send w klasie Mbox
+		bool test = mb->send(msg, this, &reciever); // wywo³ujemy send w klasie Mbox
+		return test;
 	};
 
 	bool receive();

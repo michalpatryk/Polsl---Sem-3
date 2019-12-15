@@ -15,6 +15,15 @@ int main() {
 	mb.send(lf, &us1, &us2);
 	mb.send(us2name, &us1, &us2);
 	mb.send(us1name, &us2, &us1);
+	std::string msg1 = "Example Message";
+	std::string msg2 = "Other Message";
+
+	us1.send(msg1, us2);
+	us2.send(msg1, us2);
+
+	us1.receive();
+	std::cout << std::endl;
+	us2.receive();
 
 	return 0;
 }
