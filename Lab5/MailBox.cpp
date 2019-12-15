@@ -1,15 +1,15 @@
-#include "MailBox.h"
+ï»¿#include "MailBox.h"
 #include <ctime>
 #include "User.h"
 #pragma warning(disable : 4996)
 MailBox::MailBox(std::string & name_of_logfile, std::string & name_of_backupfile)
-// je¿eli plik backup  ju¿ istnieje wczytuje go do mbox
+// jeÂ¿eli plik backup  juÂ¿ istnieje wczytuje go do mbox
 {
 	std::ifstream ifs(name_of_backupfile);
 	if (ifs) {
 		int i = 0;
 		std::cout << "Loading old file" << std::endl;
-		while (ifs>>mbox[i]) {
+		while (ifs >> mbox[i]) {
 			i++;
 			std::cout << "Line loaded" << std::endl;
 		}
@@ -30,19 +30,29 @@ MailBox::~MailBox()
 }
 
 bool MailBox::send(std::string & msg, User * sender, User * reciever)
-// do pliku log zapisujemy date i czas nadania wiadomosci, id oraz nazwê  nadawcy oraz odbiorcy
-		// w przypadku przekroczenia skrzynki mbox zwracamy false  i zapisujemy w pliku log to zdarzenie  jako error
-		// jezeli id odbiorcy jest równa id nadawcy wiadomoœæ odrzucamy i zwracamy false
-		// umieszczamy tresc wiadomoœci  czas nadania i adres nadawcy   w tablicy pod indeksem bêd¹cym id odbiorcy
-		// je¿eli by³a wiadomoœæ nie odebrana doklejamy j¹ (operator + na klasie string) wiadomoœci odzielone s¹
-		// ³añcuchem "\n***********\n"
+// do pliku log zapisujemy date i czas nadania wiadomosci, id oraz nazwÄ™  nadawcy oraz odbiorcy
+	   // w przypadku przekroczenia skrzynki mbox zwracamy false  i zapisujemy w pliku log to zdarzenie  jako error
+	   // jezeli id odbiorcy jest rÃ³wna id nadawcy wiadomoÅ›Ä‡ odrzucamy i zwracamy false
+	   //! umieszczamy tresc wiadomoÅ›ci  czas nadania i adres nadawcy   w tablicy pod indeksem bÄ™dÄ…cym id odbiorcy
+	   // jeÅ¼eli byÅ‚a wiadomoÅ›Ä‡ nie odebrana doklejamy jÄ… (operator + na klasie string) wiadomoÅ›ci odzielone sÄ…
+	   // Å‚aÅ„cuchem "\n***********\n"
 {
-//	log << 
+
 	std::time_t t = std::time(0);	//get current time
-	
-	//std::cout
-	std::cout << "Send time: " <<std::ctime(&t)<< "Sender ID: " << sender->getMyID() << "\nSender Name: " << sender->getNickname()<<
-		"\nReciever ID: "<< reciever->getMyID() << "\nReciver Name: " << reciever->getNickname();
+	log << "\nSend time: " << std::ctime(&t) << "Sender ID: " << sender->getMyID() << "\nSender Name: " << sender->getNickname() <<
+		"\nReciever ID: " << reciever->getMyID() << "\nReciver Name: " << reciever->getNickname();
+
+
+	if ((sender->getMyID() < 10 && reciever->getMyID() < 10) ) {
+		if (sender->getMyID() != reciever->getMyID()) {
+			if (mbox[reciever->getMyID()].empty()) { mbox[reciever->getMyID()] = msg; }
+			else { 
+				mbox[reciever->getMyID()] += "\n***********\n";
+				mbox[reciever->getMyID()] += msg;
+			}
+		}
+	}
+	else log << "ERROR!!!";
 	return false;
 }
 

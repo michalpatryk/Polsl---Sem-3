@@ -29,6 +29,12 @@
     <Text Include="Zadanie.txt">
       <Filter>Pliki źródłowe</Filter>
     </Text>
+    <Text Include="logfile.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
+    <Text Include="backupfile.txt">
+      <Filter>Pliki zasobów</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MailBox.h">
