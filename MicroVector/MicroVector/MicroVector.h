@@ -2,6 +2,7 @@
 #ifndef ___MicroVector___
 #define ___MicroVector___
 #include <iostream>
+#include  <type_traits>
 template<class T>
 class MicroVector {
 	int length;
@@ -10,10 +11,13 @@ class MicroVector {
 public:
 	MicroVector();
 	MicroVector(int size_);
+	//MicroVector(T n);
 	MicroVector(int size_, T fill);
 	void push_back(T input);
 	T &operator[](int i);
 	bool empty();
+
+
 
 	~MicroVector();
 };
@@ -27,8 +31,15 @@ inline MicroVector<T>::MicroVector() :size(10), length(0) { vecArray = new T[siz
 template<class T>
 inline MicroVector<T>::MicroVector(int size_) : size(size_), length(0) { vecArray = new T[size]; }
 
+//template<class T>
+//inline MicroVector<T>::MicroVector(T n):  length(0)
+//{
+//	size = n;
+//	vecArray = new T[n];
+//}
+
 template<class T>
-inline MicroVector<T>::MicroVector(int size_, T fill) : size(size_), length(0)
+inline MicroVector<T>::MicroVector(int size_, T fill) : size(size_), length(size_)
 {
 	vecArray = new T[size];
 	for (int i = 0; i < size; i++) {
@@ -67,14 +78,16 @@ inline bool MicroVector<T>::empty()
 	else return false;
 }
 
+
+
 template<class T>
 inline MicroVector<T>::~MicroVector()
 {
 	if (vecArray != nullptr) {
-		delete[] vecArray;
+		delete[] this->vecArray;
 		vecArray = nullptr;
 	}
 	std::cout << "Deleting";
-	
+
 }
 #endif // ! MicroVector

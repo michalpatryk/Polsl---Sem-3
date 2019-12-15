@@ -25,7 +25,7 @@ int main()
 		std::cout << tester[3];
 		MicroVector<int> test2(8);
 		//std::vector<std::vector<int>> varr(8, std::vector<int>(8));
-		MicroVector<MicroVector<int>> test3(8, 3);
+	//	MicroVector<MicroVector<int>> test3(8, <int>(3));
 
 	}
 	_CrtDumpMemoryLeaks();
