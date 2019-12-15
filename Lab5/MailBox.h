@@ -23,15 +23,15 @@ public:
 	// zapisuje wszystkie wiadomoœci do backup i usuwa z pamiêci
 	// Uwaga poni¿sze metody musz¹ byæ w osobnym pliku:
 
-	bool send(std::string &msg, User *sender, User * reciever) // uzytkownik sender wysyla wiadomosc msg do uzytkownika reciever
-	{
+	bool send(std::string &msg, User *sender, User * reciever); // uzytkownik sender wysyla wiadomosc msg do uzytkownika reciever
+	
 		// do pliku log zapisujemy date i czas nadania wiadomosci, id oraz nazwê  nadawcy oraz odbiorcy
 		// w przypadku przekroczenia skrzynki mbox zwracamy false  i zapisujemy w pliku log to zdarzenie  jako error
 		// jezeli id odbiorcy jest równa id nadawcy wiadomoœæ odrzucamy i zwracamy false
 		// umieszczamy tresc wiadomoœci  czas nadania i adres nadawcy   w tablicy pod indeksem bêd¹cym id odbiorcy
 		// je¿eli by³a wiadomoœæ nie odebrana doklejamy j¹ (operator + na klasie string) wiadomoœci odzielone s¹
 		// ³añcuchem "\n***********\n"
-	}
+	
 	std::string * receive(User *user); // zwraca NULL w przypadku b³êdu - indeks poza zakresem, 
 								   //lub gdy niema wiadomoœæ dla tego u¿ytkownika
 	void print(); //! done

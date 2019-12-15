@@ -9,8 +9,9 @@ class  User
 	MailBox *mb;// adres skrzynki z któr¹ jest zwiazany u¿ytkownik
 
 public:
-
-	User(MailBox *mb_, std::string & nickname_)//
+	int getMyID() { return myid; };
+	std::string getNickname() { return nickname; };
+	User(MailBox *mb_, std::string & nickname_)//! done
 	{
 		myid = id++; //przypisanie unikalnego id
 		nickname = nickname_;
@@ -19,12 +20,13 @@ public:
 		// przypisanie skrzynki zdefiniowanej wczeœniej
 	}
 
-	bool send(std::string &msg, User & reciever)//
+	bool send(std::string &msg, User & reciever)//! done?
 	{
 		mb->send(msg, this, &reciever); // wywo³ujemy send w klasie Mbox
 	};
 
-	bool receive()// pobieram wiadomoœæ ze skrzynki
+	bool receive()
+		// pobieram wiadomoœæ ze skrzynki
 	{
 		std::string msg;
 		mb->receive(this); // wywo³ujemy send w klasie Mbox
