@@ -66,6 +66,13 @@ std::string * MailBox::receive(User * user)
 	return nullptr;
 }
 
+void MailBox::pulverize(User * user)
+{
+	if (user->getMyID() < 10) {
+		mbox[user->getMyID()] = "";
+	}
+}
+
 void MailBox::print()
 {
 	for (int i = 0; i < N; i++) {

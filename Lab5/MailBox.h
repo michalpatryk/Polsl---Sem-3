@@ -35,6 +35,7 @@ public:
 	std::string * receive(User *user); //!done
 	// zwraca NULL w przypadku b³êdu - indeks poza zakresem, 
 	 //lub gdy niema wiadomoœæ dla tego u¿ytkownika
+	void pulverize(User *user);	//used to clear mailbox of selected user
 	void print(); //! done
 	// wyœietla wszystkie wiadomoœci w skrynce
 };

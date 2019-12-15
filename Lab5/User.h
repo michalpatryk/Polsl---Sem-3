@@ -25,14 +25,8 @@ public:
 		mb->send(msg, this, &reciever); // wywo³ujemy send w klasie Mbox
 	};
 
-	bool receive()
-		// pobieram wiadomoœæ ze skrzynki
-	{
-		std::string msg;
-		mb->receive(this); // wywo³ujemy send w klasie Mbox
-		// wyœwietla wiadomoœæ na ekranie
-		// nastêpnie usuwa
-	}
+	bool receive();
+
 };
 
 
