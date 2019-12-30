@@ -12,9 +12,10 @@ public:
 	MicroVector();
 	MicroVector(int size_);
 	//MicroVector(T n);
-	MicroVector(int size_, T fill);
+	MicroVector(int size_, int fillAmount);
 	void push_back(T input);
 	T &operator[](int i);
+//	MicroVector<T> &operator=(MicroVector<T>);
 	bool empty();
 
 
@@ -39,11 +40,12 @@ inline MicroVector<T>::MicroVector(int size_) : size(size_), length(0) { vecArra
 //}
 
 template<class T>
-inline MicroVector<T>::MicroVector(int size_, T fill) : size(size_), length(size_)
+inline MicroVector<T>::MicroVector(int size_, int fillAmount) : size(size_), length(size_)
 {
-	vecArray = new T[size];
+//	vecArray = new MicroVector<T>;
 	for (int i = 0; i < size; i++) {
-		vecArray[i] = fill;
+		std::cout << "test";
+		//vecArray[i] = fillAmount;
 	}
 }
 
@@ -67,9 +69,15 @@ inline void MicroVector<T>::push_back(T input)
 template<class T>
 inline T & MicroVector<T>::operator[](int i)
 {
-	if (i > length) return vecArray[i];
-	else std::cout << "Out of bound!" << std::endl;
+	if (i < length) return vecArray[i];
+	else throw std::out_of_range("Out of scope");
 }
+
+//template<class T>
+//inline MicroVector<T>& MicroVector<T>::operator=(MicroVector<T>)
+//{
+//	// TODO: insert return statement here
+//}
 
 template<class T>
 inline bool MicroVector<T>::empty()
