@@ -19,7 +19,7 @@ public:
 	void move(int initX, int initY);
 
 	std::vector<std::vector<int>> moveCost(Color c);
-
+	MicroVector<MicroVector<int>> moveCostMV(Color c);
 	//friend Piece;
 	friend void sfmlMAIN(Board board);	//needed for sprite acces
 };

@@ -146,4 +146,36 @@ std::vector<std::vector<int>> Board::moveCost(Color c)
 	return varr;
 }
 
+MicroVector<MicroVector<int>>  Board::moveCostMV(Color c)
+{
+	MicroVector<MicroVector<int>> test(8);
+	{
+		MicroVector<MicroVector<int>> varr(8);
+
+		for (int i = 0; i < 8; i++) {
+			varr[i].clearAndSetSize(8);
+		}
+
+		int whiteCost, blackCost;		//set the cost of a given color. Makes the function universal
+		if (c == Color::white) { whiteCost = 2; blackCost = 1; }	//if color == same as my piece, cost is 2
+		else if (c == Color::black) { whiteCost = 1; blackCost = 2; }
+
+		for (int i = 0; i < 8; i++) {	//assign cost to each location
+			for (int j = 0; j < 8; j++) {
+				if (this->pieces[i][j] != nullptr) {
+					if (this->pieces[i][j]->returnColor() == Color::white) { varr[i][j] = whiteCost; }
+					else if (this->pieces[i][j]->returnColor() == Color::black) { varr[i][j] = blackCost; }
+				}
+				else varr[i][j] = 0;
+			}
+			//MicroVector<MicroVector<int>> rest{};
+			//rest = varr;
+		}
+		//auto rest = varr;
+		test = varr;
+	}
+	//TEST DELETES ITS CHILDREN WHEN IT SHOULDNT
+	return test;
+}
+
 
