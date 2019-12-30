@@ -112,7 +112,6 @@ void Board::move(int initX, int initY)
 	int tY = pieces[initY][initX]->coord.y - 1;
 	if (pieces[tY][tX] != nullptr) {	//enter killing protocol
 		Piece temp{ pieces[tY][tX] };
-		lostt.push_back(temp);
 		lost.push_back(temp);
 		delete pieces[tY][tX];
 		pieces[tY][tX] = pieces[initY][initX];

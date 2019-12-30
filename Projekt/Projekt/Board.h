@@ -7,8 +7,8 @@
 class Board
 {
 	Piece *pieces[8][8];
-	std::vector<Piece> lost;
-	MicroVector<Piece> lostt;
+	//std::vector<Piece> lost;
+	MicroVector<Piece> lost;
 public:
 
 	Board();
