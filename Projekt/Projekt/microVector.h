@@ -2,6 +2,7 @@
 #ifndef ___MicroVector___
 #define ___MicroVector___
 #include <iostream>
+#include  <type_traits>
 template<class T>
 class MicroVector {
 	int length;
@@ -10,31 +11,21 @@ class MicroVector {
 public:
 	MicroVector();
 	MicroVector(int size_);
-	MicroVector(int size_, T fill);
 	void push_back(T input);
 	T &operator[](int i);
+
 	bool empty();
 
 	~MicroVector();
 };
-//MicroVector<MicroVector<int>> varr(8, MicroVector<int>(8));	//create 2d MicroVector of size [8][8]
 
 
 template<class T>
 
-inline MicroVector<T>::MicroVector() :size(10), length(0) { vecArray = new T[size]; }
+inline MicroVector<T>::MicroVector() :size(10), length(0) { vecArray = new T[size](); }
 
 template<class T>
-inline MicroVector<T>::MicroVector(int size_) : size(size_), length(0) { vecArray = new T[size]; }
-
-template<class T>
-inline MicroVector<T>::MicroVector(int size_, T fill) : size(size_), length(0)
-{
-	vecArray = new T[size];
-	for (int i = 0; i < size; i++) {
-		vecArray[i] = fill;
-	}
-}
+inline MicroVector<T>::MicroVector(int size_) : size(size_), length(0) { vecArray = new T[size](); }
 
 template<class T>
 inline void MicroVector<T>::push_back(T input)
@@ -56,9 +47,11 @@ inline void MicroVector<T>::push_back(T input)
 template<class T>
 inline T & MicroVector<T>::operator[](int i)
 {
-	if (i > length) return vecArray[i];
-	else std::cout << "Out of bound!" << std::endl;
+	if (i < size) return vecArray[i];
+	else throw std::out_of_range("Out of scope");
 }
+
+
 
 template<class T>
 inline bool MicroVector<T>::empty()
@@ -67,14 +60,16 @@ inline bool MicroVector<T>::empty()
 	else return false;
 }
 
+
+
 template<class T>
 inline MicroVector<T>::~MicroVector()
 {
 	if (vecArray != nullptr) {
-		delete[] vecArray;
+		delete[] this->vecArray;
 		vecArray = nullptr;
 	}
 	std::cout << "Deleting";
-	
+
 }
 #endif // ! MicroVector
