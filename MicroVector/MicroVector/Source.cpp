@@ -9,7 +9,7 @@ int main() {
 		MicroVector<int> tester{};
 	//	MicroVector<int> tester2();	// It doesnt show up in locals???
 		//MicroVector<int> tester3;		//AND THIS CRASHES ALL
-		int i = 0, j = 5, c = 2;
+		int i = 3, j = 5, c = 2;
 		tester.push_back(i);
 		tester.push_back(j);
 		tester.push_back(c);
@@ -24,16 +24,26 @@ int main() {
 		//MicroVector<MicroVector<int>> test3(5, (3));		//calls destructor upon initializaion ???
 		MicroVector<MicroVector<int>> test4{ 5 };
 		test4[1].push_back(c);
-		/*test4[1].push_back(c);
+		test4[1].push_back(c);
 		test4[1].push_back(c);
 		test4[3].push_back(i);
-		test4[2].push_back(j);*/
-		/*int out1 = test4[0][0];
+		test4[2].push_back(j);
+		test4[1].push_back(j);
+		test4[1].push_back(j);
+		test4[1].push_back(i);
+		test4[1].push_back(i);
+		test4[1].push_back(i);
+		test4[1].push_back(i);
+		test4[1].push_back(i);
+		test4[1].push_back(i);
+		test4[1].push_back(i);
+		test4[1].push_back(i);
+		int out1 = test4[0][0];
 		int out2 = test4[1][1];
 		int out3 = test4[1][2];
 		int out4 = test4[1][3];
-		int out5 = test4[1][4];*/
-		//std::cout << out1 << std::endl;
+		int out5 = test4[1][4];
+		std::cout << out1 << std::endl;
 	}
 	_CrtDumpMemoryLeaks();
 	return 0;
