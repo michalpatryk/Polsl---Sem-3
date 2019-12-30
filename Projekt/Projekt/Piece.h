@@ -30,7 +30,7 @@ public:
 	Piece(Piece *p);
 	~Piece();
 	//operators
-	Piece operator=(const Piece & piece_);
+	Piece & operator=(const Piece & piece_);
 	//innerworkings
 	void loadCostTable(std::vector<std::vector<int>> cT);
 	virtual void createPossibleMoveTable() {};	//Explaination here for all child classes:

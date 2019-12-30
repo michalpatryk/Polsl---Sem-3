@@ -34,10 +34,18 @@ Piece::~Piece()
 {
 }
 
-Piece Piece::operator=(const Piece & piece_)
+Piece & Piece::operator=(const Piece & piece_)
 {
-	Piece returner{ piece_.color, piece_.coord.x, piece_.coord.y};
-	return returner;
+	//Piece returner{ piece_.color, piece_.coord.x, piece_.coord.y};
+	//return returner;
+	color = piece_.color;
+	coord = piece_.coord;
+	costTable = piece_.costTable;
+	isHeld = piece_.isHeld;
+	possibleMoveTable = piece_.possibleMoveTable;
+	sprite = piece_.sprite;
+	texture = piece_.texture;
+	return *this;
 }
 
 void Piece::loadCostTable(std::vector<std::vector<int>> cT)

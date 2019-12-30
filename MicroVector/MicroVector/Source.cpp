@@ -16,7 +16,7 @@ int main() {
 		tester.push_back(c);
 		tester.push_back(c);
 		tester.push_back(c);
-		std::cout << tester[3];
+		std::cout << tester[3] << std::endl;
 	//	MicroVector<int> test2(8);
 		//std::vector<std::vector<int>> varr(8, std::vector<int>(8));
 	//	MicroVector<MicroVector<int>> test3(8, MicroVector<int>(3));
@@ -44,6 +44,9 @@ int main() {
 		int out4 = test4[1][3];
 		int out5 = test4[1][4];
 		std::cout << out1 << std::endl;
+		std::cout << test4[1][0];
+		test4[1][0] = 10000;
+		std::cout << test4[1][0];
 	}
 	_CrtDumpMemoryLeaks();
 	return 0;

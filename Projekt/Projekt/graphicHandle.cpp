@@ -81,7 +81,7 @@ void sfmlMAIN(Board board)
 			}
 		}
 
-
+		
 		window.clear();
 		colorDisplay(isWhiteMove, window);
 		board.draw(window);

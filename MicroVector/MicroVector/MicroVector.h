@@ -11,7 +11,7 @@ class MicroVector {
 public:
 	MicroVector();
 	MicroVector(int size_);
-	void push_back(T input);
+	void push_back(T & input);
 	T &operator[](int i);
 
 	bool empty();
@@ -28,7 +28,7 @@ template<class T>
 inline MicroVector<T>::MicroVector(int size_) : size(size_), length(0) { vecArray = new T[size](); }
 
 template<class T>
-inline void MicroVector<T>::push_back(T input)
+inline void MicroVector<T>::push_back(T & input)
 {
 	length++;
 	if (length > size) {
@@ -42,6 +42,7 @@ inline void MicroVector<T>::push_back(T input)
 		delete[] temp;
 	}
 	vecArray[length - 1] = input;
+
 }
 
 template<class T>
