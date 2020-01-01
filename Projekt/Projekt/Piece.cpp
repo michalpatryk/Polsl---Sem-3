@@ -53,6 +53,11 @@ void Piece::loadCostTable(std::vector<std::vector<int>> cT)
 	costTable = cT;
 }
 
+void Piece::loadCostTableMV(MicroVector<MicroVector<int>> cT)
+{
+	costTableMV = cT;
+}
+
 bool Piece::canMove(int x, int y)	
 {
 	x -= 1; y -= 1; //we are receiving data in 1-8 system, we must change it to 0-7

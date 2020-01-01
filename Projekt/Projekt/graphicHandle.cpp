@@ -44,10 +44,10 @@ void sfmlMAIN(Board board)
 								indexX = j;
 								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);	//move register
 								board.pieces[i][j]->loadCostTable(board.moveCost(board.pieces[i][j]->returnColor()));
-								auto tempCost = board.moveCost(board.pieces[i][j]->returnColor());
-								MicroVector<MicroVector<int>> tempCost2{9};
-								tempCost2 = board.moveCostMV(board.pieces[i][j]->returnColor());
-								board.pieces[i][j]->createPossibleMoveTable();		//10% done, only pawn working
+
+								board.pieces[i][j]->loadCostTableMV(board.moveCostMV(board.pieces[i][j]->returnColor()));
+
+								board.pieces[i][j]->createPossibleMoveTable();		
 							}
 						}
 					}

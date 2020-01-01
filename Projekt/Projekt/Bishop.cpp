@@ -48,3 +48,7 @@ void Bishop::createPossibleMoveTable()
 	}
 	possibleMoveTable[y][x] = false;
 }
+
+void Bishop::createPossibleMoveTableMV()
+{
+}

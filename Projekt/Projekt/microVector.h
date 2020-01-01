@@ -10,6 +10,7 @@ class MicroVector {
 	T* vecArray;
 public:
 	MicroVector();
+	MicroVector(const MicroVector<T> &copy);
 	MicroVector(int size_);
 	void push_back(T & input);
 	void clearAndSetSize(int size_);
@@ -25,6 +26,15 @@ public:
 template<class T>
 
 inline MicroVector<T>::MicroVector() :size(10), length(0) { vecArray = new T[size]; }
+
+template<class T>
+inline MicroVector<T>::MicroVector(const MicroVector<T>& copy): size(copy.size), length(copy.length)
+{
+	vecArray = new T[size];
+	for (int i = 0; i < size; i++) {
+		vecArray[i] = copy.vecArray[i];
+	}
+}
 
 template<class T>
 inline MicroVector<T>::MicroVector(int size_) : size(size_), length(0) { vecArray = new T[size]; }

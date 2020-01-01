@@ -12,7 +12,9 @@ class Piece
 
 protected:
 	std::vector<std::vector<int>> costTable;	//general move costTable
+	MicroVector<MicroVector<int>> costTableMV;
 	std::vector<std::vector<bool>> possibleMoveTable; //strict table for each kind of piece
+	std::vector<std::vector<bool>> possibleMoveTableMV; 
 	Color color = Color::zero;
 	std::string getColorFilename();
 	virtual std::string getPieceFilename() { return ""; };
@@ -33,9 +35,11 @@ public:
 	Piece & operator=(const Piece & piece_);
 	//innerworkings
 	void loadCostTable(std::vector<std::vector<int>> cT);
+	void loadCostTableMV(MicroVector<MicroVector<int>> cT);
 	virtual void createPossibleMoveTable() {};	//Explaination here for all child classes:
 												//We create a 2d array that contains either 1 if move is possible to this position
 												// or 0 if the move is impossible
+	virtual void createPossibleMoveTableMV() {};
 	bool canMove(int x, int y);
 	void draw(sf::RenderWindow & window);
 	void getSprite();
