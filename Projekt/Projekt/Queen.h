@@ -11,5 +11,6 @@ public:
 	PieceType returnType() { return piece; };
 	std::string getPieceFilename() { return "/Queen.png"; };
 	void createPossibleMoveTable();
+	void createPossibleMoveTableMV();
 };
 
