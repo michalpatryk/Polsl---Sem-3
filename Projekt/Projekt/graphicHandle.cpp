@@ -18,6 +18,7 @@ void sfmlMAIN(Board board)
 	bool isMove = 0;
 	int indexX = 0, indexY = 0;
 	std::vector<std::string> moveList;
+	MicroVector<std::string> moveListMV;
 	std::string currentMove;	//get current move
 	bool isWhiteMove = true;
 
@@ -46,8 +47,10 @@ void sfmlMAIN(Board board)
 								board.pieces[i][j]->loadCostTable(board.moveCost(board.pieces[i][j]->returnColor()));
 
 								board.pieces[i][j]->loadCostTableMV(board.moveCostMV(board.pieces[i][j]->returnColor()));
-
+								//board.pieces[i][j]->debugCT();	//CT is loading well
 								board.pieces[i][j]->createPossibleMoveTable();		
+								board.pieces[i][j]->createPossibleMoveTableMV();
+								board.pieces[i][j]->debugMT();
 							}
 						}
 					}
@@ -63,7 +66,8 @@ void sfmlMAIN(Board board)
 						&& ((isWhiteMove == true && board.pieces[indexY][indexX]->returnColor() == Color::white)
 							|| (isWhiteMove == false && board.pieces[indexY][indexX]->returnColor() == Color::black))) {
 
-						secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
+						//secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
+						secondCoordAndVectorHandleMV(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveListMV, currentMove);
 						if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
 						board.move(indexX, indexY);
 						isWhiteMove = !isWhiteMove;
@@ -127,6 +131,19 @@ void secondCoordAndVectorHandle(int x, int y, std::vector<std::string>& v, std::
 	}
 	s.clear();
 
+}
+
+void secondCoordAndVectorHandleMV(int x, int y, MicroVector<std::string>& v, std::string & s)
+{
+	if (!s.empty()) {
+		x += 96;
+		s += (char)x;
+		y -= 9;
+		y *= -1;
+		s += std::to_string(y);
+		v.push_back(s);
+	}
+	s.clear();
 }
 
 void colorDisplay(bool isWhite, sf::RenderWindow & window)

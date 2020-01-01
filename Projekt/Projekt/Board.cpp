@@ -146,10 +146,8 @@ std::vector<std::vector<int>> Board::moveCost(Color c)
 	return varr;
 }
 
-MicroVector<MicroVector<int>>  Board::moveCostMV(Color c)
+MicroVector<MicroVector<int>> Board::moveCostMV(Color c)
 {
-	
-	
 
 	MicroVector<MicroVector<int>> varr(8);
 	for (int i = 0; i < 8; i++) {
@@ -168,11 +166,7 @@ MicroVector<MicroVector<int>>  Board::moveCostMV(Color c)
 			}
 			else varr[i][j] = 0;
 		}
-		//MicroVector<MicroVector<int>> rest{};
-		//rest = varr;
 	}
-	//auto rest = varr;
 
-//TEST DELETES ITS CHILDREN WHEN IT SHOULDNT
 	return varr;
 }

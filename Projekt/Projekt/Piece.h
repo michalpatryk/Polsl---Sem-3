@@ -14,7 +14,7 @@ protected:
 	std::vector<std::vector<int>> costTable;	//general move costTable
 	MicroVector<MicroVector<int>> costTableMV;
 	std::vector<std::vector<bool>> possibleMoveTable; //strict table for each kind of piece
-	std::vector<std::vector<bool>> possibleMoveTableMV; 
+	MicroVector<MicroVector<bool>> possibleMoveTableMV;
 	Color color = Color::zero;
 	std::string getColorFilename();
 	virtual std::string getPieceFilename() { return ""; };
@@ -41,12 +41,15 @@ public:
 												// or 0 if the move is impossible
 	virtual void createPossibleMoveTableMV() {};
 	bool canMove(int x, int y);
+	bool canMoveMV(int x, int y);
 	void draw(sf::RenderWindow & window);
 	void getSprite();
 	
 	virtual PieceType returnType() { return PieceType::none; };
 	Color returnColor() { return this->color; };
 	virtual void debug();
-	
+	void debugCT();
+	void debugMT();
+
 };
 

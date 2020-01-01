@@ -103,6 +103,6 @@ inline MicroVector<T>::~MicroVector()
 		delete[] this->vecArray;
 		vecArray = nullptr;
 	}
-	std::cout << "Deleting";
+//	std::cout << "Deleting";
 }
 #endif // ! MicroVector

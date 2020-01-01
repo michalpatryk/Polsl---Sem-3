@@ -66,6 +66,14 @@ bool Piece::canMove(int x, int y)
 	else return false;
 }
 
+bool Piece::canMoveMV(int x, int y)
+{
+	x -= 1; y -= 1; //we are receiving data in 1-8 system, we must change it to 0-7
+
+	if (!possibleMoveTableMV.empty() && possibleMoveTableMV[y][x] == true) return true;
+	else return false;
+}
+
 void Piece::draw(sf::RenderWindow & window)
 {
 	
@@ -127,4 +135,48 @@ void Piece::getSprite()
 void Piece::debug()
 {
 	std::cout << "Testing" <<std::endl;
+}
+
+void Piece::debugCT()
+{
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (costTable[i][j] == true) std::cout << "1 ";
+			else std::cout << "0 ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << "!---------------!" << std::endl;
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (costTableMV[i][j] == true) std::cout << "1 ";
+			else std::cout << "0 ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+}
+
+void Piece::debugMT()
+{
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (possibleMoveTable[i][j] == true) std::cout << "1 ";
+			else std::cout << "0 ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << "!---------------!" << std::endl;
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			if (possibleMoveTableMV[i][j] == true) std::cout << "1 ";
+			else std::cout << "0 ";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
 }
