@@ -15,7 +15,9 @@ public:
 	void push_back(T & input);
 	void clearAndSetSize(int size_);
 	MicroVector<T> & operator=(const MicroVector<T> & input);
+	T back();
 	T &operator[](int i);
+	
 
 	bool empty();
 
@@ -37,7 +39,7 @@ inline MicroVector<T>::MicroVector(const MicroVector<T>& copy): size(copy.size),
 }
 
 template<class T>
-inline MicroVector<T>::MicroVector(int size_) : size(size_), length(0) { vecArray = new T[size]; }
+inline MicroVector<T>::MicroVector(int size_) : size(size_), length(size_) { vecArray = new T[size]; }
 
 template<class T>
 inline void MicroVector<T>::push_back(T & input)
@@ -76,6 +78,12 @@ inline MicroVector<T>& MicroVector<T>::operator=(const MicroVector<T> & input)
 		vecArray[i] = input.vecArray[i];
 	}
 	return *this;
+}
+
+template<class T>
+inline T MicroVector<T>::back()
+{
+	return vecArray[length - 1];
 }
 
 template<class T>

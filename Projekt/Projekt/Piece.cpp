@@ -112,6 +112,27 @@ void Piece::draw(sf::RenderWindow & window)
 	window.draw(sprite);
 }
 
+void Piece::drawMV(sf::RenderWindow & window)
+{
+	sf::RectangleShape rect(sf::Vector2f(100, 100));
+	sf::Color rectColor(0, 255, 0, 127);
+	rect.setFillColor(rectColor);
+	//sf::CircleShape circle(40.f);		//costTable debug
+	//circle.setFillColor(sf::Color::Green);
+	if (!possibleMoveTableMV.empty() && isHeld == true) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (possibleMoveTableMV[j][i] == true) {
+					rect.setPosition(100 + i * 100, 100 + j * 100);
+					window.draw(rect);
+				}
+			}
+		}
+	}
+	sprite.setPosition(coord.x * 100 + 10, coord.y * 100 + 10);
+	window.draw(sprite);
+}
+
 void Piece::getSprite()
 {
 	sf::Context context;	//required to work, ohterwise throws a lot of OpenGl errors. Windowless window.

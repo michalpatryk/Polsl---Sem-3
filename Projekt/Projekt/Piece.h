@@ -43,6 +43,7 @@ public:
 	bool canMove(int x, int y);
 	bool canMoveMV(int x, int y);
 	void draw(sf::RenderWindow & window);
+	void drawMV(sf::RenderWindow & window);
 	void getSprite();
 	
 	virtual PieceType returnType() { return PieceType::none; };

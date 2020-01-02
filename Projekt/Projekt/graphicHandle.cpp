@@ -17,7 +17,7 @@ void sfmlMAIN(Board board)
 	float dx = 0, dy = 0;
 	bool isMove = 0;
 	int indexX = 0, indexY = 0;
-	std::vector<std::string> moveList;
+	//std::vector<std::string> moveList;
 	MicroVector<std::string> moveListMV;
 	std::string currentMove;	//get current move
 	bool isWhiteMove = true;
@@ -50,7 +50,7 @@ void sfmlMAIN(Board board)
 								//board.pieces[i][j]->debugCT();	//CT is loading well
 								board.pieces[i][j]->createPossibleMoveTable();		
 								board.pieces[i][j]->createPossibleMoveTableMV();
-								board.pieces[i][j]->debugMT();
+								//board.pieces[i][j]->debugMT();
 							}
 						}
 					}
@@ -62,13 +62,12 @@ void sfmlMAIN(Board board)
 					isMove = false;
 					//function below checks if we dropped the piece in a legal place, if yes - we move the piece pernamently. Otherwise, we revert
 					//it also checks if the color matches the one that should move now, by using (  (legal) && ((color1) || (color2))  )
-					if (board.pieces[indexY][indexX]->canMove(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)
+					if (board.pieces[indexY][indexX]->canMoveMV(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y)
 						&& ((isWhiteMove == true && board.pieces[indexY][indexX]->returnColor() == Color::white)
 							|| (isWhiteMove == false && board.pieces[indexY][indexX]->returnColor() == Color::black))) {
-
 						//secondCoordAndVectorHandle(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveList, currentMove);	//move register
 						secondCoordAndVectorHandleMV(board.pieces[indexY][indexX]->coord.x, board.pieces[indexY][indexX]->coord.y, moveListMV, currentMove);
-						if (!moveList.empty()) std::cout << moveList.back() << std::endl;	//print last move
+						if (!moveListMV.empty()) std::cout << moveListMV.back() << std::endl;	//print last move
 						board.move(indexX, indexY);
 						isWhiteMove = !isWhiteMove;
 						
