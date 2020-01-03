@@ -5,8 +5,9 @@
 #include "Board.h"
 #include "microVector.h"
 
-void sfmlINIT();
+void sfmlINIT(sf::RenderWindow & window);
 void sfmlMAIN(Board board);
+void sfmlEND(sf::RenderWindow & window);
 
 std::string firstCoord(PieceType p, int x, int y);
 void secondCoordAndVectorHandle(int x, int y, std::vector<std::string> & v, std::string & s);

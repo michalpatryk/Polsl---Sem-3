@@ -18,7 +18,6 @@ protected:
 	Color color = Color::zero;
 	std::string getColorFilename();
 	virtual std::string getPieceFilename() { return ""; };
-	
 public:
 	
 	Coord coord;

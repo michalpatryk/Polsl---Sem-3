@@ -113,6 +113,9 @@ void Board::move(int initX, int initY)
 	if (pieces[tY][tX] != nullptr) {	//enter killing protocol
 		Piece temp{ pieces[tY][tX] };
 		lost.push_back(temp);
+		if (pieces[tY][tX]->returnType() == PieceType::King) {
+			this->gameOver = true;
+		}
 		delete pieces[tY][tX];
 		pieces[tY][tX] = pieces[initY][initX];
 		pieces[initY][initX] = nullptr;

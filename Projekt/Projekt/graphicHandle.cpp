@@ -7,22 +7,35 @@
 #include "microVector.h"
 #define HEIGHT 1000
 #define WIDTH 1000
-void sfmlINIT()
+void sfmlINIT(sf::RenderWindow & window)
 {
-
+	sf::Font font;
+	font.loadFromFile("../Font/Roboto.ttf");
+	sf::Text text;
+	text.setFont(font);
+	text.setString("Start");
+	text.setCharacterSize(100);
+	text.setFillColor(sf::Color::White);
+	text.setStyle(sf::Text::Bold);
+	text.setPosition(sf::Vector2f(400, 400));
+	window.clear(sf::Color::Black);
+	window.draw(text);
+	window.display();
 }
 
 void sfmlMAIN(Board board)
 {
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Chess", sf::Style::Titlebar);	//we create a window here
+
 	float dx = 0, dy = 0;
-	bool isMove = 0;
+	bool isMove = false;
 	int indexX = 0, indexY = 0;
+	bool gameStarted = false;
 	//std::vector<std::string> moveList;
 	MicroVector<std::string> moveListMV;
 	std::string currentMove;	//get current move
 	bool isWhiteMove = true;
-
+	sfmlINIT(window);
 	while (window.isOpen())
 	{
 		sf::Vector2i position = sf::Mouse::getPosition(window);
@@ -36,6 +49,7 @@ void sfmlMAIN(Board board)
 
 			if (event.type == sf::Event::MouseButtonPressed) {	//Any mouse button pressed
 				if (event.key.code == sf::Mouse::Left) {		//Left mouse button
+					gameStarted = true;
 					for (int i = 0; i < 8; i++) {				//Now we lapse through every sprite we can find
 						for (int j = 0; j < 8; j++) {
 							if (board.pieces[i][j] != nullptr &&	//Check if its in right position
@@ -89,14 +103,32 @@ void sfmlMAIN(Board board)
 			}
 		}
 
-
-		window.clear();
-		colorDisplay(isWhiteMove, window);
-		board.draw(window);
-		board.drawPieces(window);
-		window.display();
-
+		if (board.gameOver == false && gameStarted == true) {
+			window.clear();
+			colorDisplay(isWhiteMove, window);
+			board.draw(window);
+			board.drawPieces(window);
+			window.display();
+		}
+		else if(board.gameOver == true){
+			sfmlEND(window);
+		}
 	}
+}
+
+void sfmlEND(sf::RenderWindow & window)
+{
+	sf::Font font;
+	font.loadFromFile("../Font/Roboto.ttf");
+	sf::Text text;
+	text.setFont(font);
+	text.setString("Game Over.");
+	text.setCharacterSize(80);
+	text.setFillColor(sf::Color::White);
+	text.setStyle(sf::Text::Bold);
+	text.setPosition(sf::Vector2f(0, 898));
+	window.draw(text);
+	window.display();
 }
 
 std::string firstCoord(PieceType p, int x, int y)

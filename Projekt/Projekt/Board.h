@@ -10,9 +10,9 @@ class Board
 	//std::vector<Piece> lost;
 	MicroVector<Piece> lost;
 public:
-
+	bool gameOver = false;
 	Board();
-	
+
 	~Board();
 	void draw(sf::RenderWindow & window);
 	void drawPieces(sf::RenderWindow &window);
