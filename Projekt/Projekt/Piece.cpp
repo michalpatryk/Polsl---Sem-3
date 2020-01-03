@@ -40,9 +40,11 @@ Piece & Piece::operator=(const Piece & piece_)
 	//return returner;
 	color = piece_.color;
 	coord = piece_.coord;
-	costTable = piece_.costTable;
+	//costTable = piece_.costTable;
+	costTableMV = piece_.costTableMV;
 	isHeld = piece_.isHeld;
-	possibleMoveTable = piece_.possibleMoveTable;
+	//possibleMoveTable = piece_.possibleMoveTable;
+	possibleMoveTableMV = piece_.possibleMoveTableMV;
 	sprite = piece_.sprite;
 	texture = piece_.texture;
 	return *this;

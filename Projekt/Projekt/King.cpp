@@ -51,12 +51,12 @@ void King::createPossibleMoveTableMV()
 	int y = this->coord.y - 1;
 	int checksum = 0;
 
-	if (y + 1 < 8 && x - 1 >= 0 && costTable[y + 1][x - 1] < 2) { possibleMoveTableMV[y + 1][x - 1] = true; }
-	if (y + 1 < 8 && costTable[y + 1][x] < 2) { possibleMoveTableMV[y + 1][x] = true; }
-	if (y + 1 < 8 && x + 1 < 8 && costTable[y + 1][x + 1] < 2) { possibleMoveTableMV[y + 1][x + 1] = true; }
-	if (x + 1 < 8 && costTable[y][x + 1] < 2) { possibleMoveTableMV[y][x + 1] = true; }
-	if (x - 1 >= 0 && costTable[y][x - 1] < 2) { possibleMoveTableMV[y][x - 1] = true; }
-	if (y - 1 >= 0 && x + 1 < 8 && costTable[y - 1][x + 1] < 2) { possibleMoveTableMV[y - 1][x + 1] = true; }
-	if (y - 1 >= 0 && costTable[y - 1][x] < 2) { possibleMoveTableMV[y - 1][x] = true; }
-	if (y - 1 >= 0 && x - 1 >= 0 && costTable[y - 1][x - 1] < 2) { possibleMoveTableMV[y - 1][x - 1] = true; }
+	if (y + 1 < 8 && x - 1 >= 0 && costTableMV[y + 1][x - 1] < 2) { possibleMoveTableMV[y + 1][x - 1] = true; }
+	if (y + 1 < 8 && costTableMV[y + 1][x] < 2) { possibleMoveTableMV[y + 1][x] = true; }
+	if (y + 1 < 8 && x + 1 < 8 && costTableMV[y + 1][x + 1] < 2) { possibleMoveTableMV[y + 1][x + 1] = true; }
+	if (x + 1 < 8 && costTableMV[y][x + 1] < 2) { possibleMoveTableMV[y][x + 1] = true; }
+	if (x - 1 >= 0 && costTableMV[y][x - 1] < 2) { possibleMoveTableMV[y][x - 1] = true; }
+	if (y - 1 >= 0 && x + 1 < 8 && costTableMV[y - 1][x + 1] < 2) { possibleMoveTableMV[y - 1][x + 1] = true; }
+	if (y - 1 >= 0 && costTableMV[y - 1][x] < 2) { possibleMoveTableMV[y - 1][x] = true; }
+	if (y - 1 >= 0 && x - 1 >= 0 && costTableMV[y - 1][x - 1] < 2) { possibleMoveTableMV[y - 1][x - 1] = true; }
 }

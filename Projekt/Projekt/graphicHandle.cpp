@@ -1,8 +1,9 @@
 #include <SFML/Graphics.hpp>
+//#include <SFML/Text.hpp>
 #include "graphicHandle.h"
 #include "Board.h"
 #include <iostream>
-#include <vector>
+//#include <vector>
 #include "microVector.h"
 #define HEIGHT 1000
 #define WIDTH 1000
@@ -44,11 +45,11 @@ void sfmlMAIN(Board board)
 								indexY = i;						//tells the X coord of currently moving piece
 								indexX = j;
 								currentMove += firstCoord(board.pieces[i][j]->returnType(), board.pieces[i][j]->coord.x, board.pieces[i][j]->coord.y);	//move register
-								board.pieces[i][j]->loadCostTable(board.moveCost(board.pieces[i][j]->returnColor()));
+								//board.pieces[i][j]->loadCostTable(board.moveCost(board.pieces[i][j]->returnColor()));
 
 								board.pieces[i][j]->loadCostTableMV(board.moveCostMV(board.pieces[i][j]->returnColor()));
 								//board.pieces[i][j]->debugCT();	//CT is loading well
-								board.pieces[i][j]->createPossibleMoveTable();		
+								//board.pieces[i][j]->createPossibleMoveTable();		
 								board.pieces[i][j]->createPossibleMoveTableMV();
 								//board.pieces[i][j]->debugMT();
 							}
@@ -56,6 +57,7 @@ void sfmlMAIN(Board board)
 					}
 				}
 			}
+
 			if (event.type == sf::Event::MouseButtonReleased) {
 				if (event.key.code == sf::Mouse::Left && board.pieces[indexY][indexX] != nullptr) {	//releases piece
 					board.pieces[indexY][indexX]->isHeld = 0;
@@ -70,7 +72,7 @@ void sfmlMAIN(Board board)
 						if (!moveListMV.empty()) std::cout << moveListMV.back() << std::endl;	//print last move
 						board.move(indexX, indexY);
 						isWhiteMove = !isWhiteMove;
-						
+
 					}
 					else {
 						board.pieces[indexY][indexX]->coord.x = indexX + 1;	//we revert the changes
@@ -87,12 +89,13 @@ void sfmlMAIN(Board board)
 			}
 		}
 
-		
+
 		window.clear();
 		colorDisplay(isWhiteMove, window);
 		board.draw(window);
 		board.drawPieces(window);
 		window.display();
+
 	}
 }
 
@@ -147,11 +150,11 @@ void secondCoordAndVectorHandleMV(int x, int y, MicroVector<std::string>& v, std
 
 void colorDisplay(bool isWhite, sf::RenderWindow & window)
 {
-	sf::CircleShape circle(50.f);	
+	sf::CircleShape circle(50.f);
 	sf::Color color(10, 10, 0);
-	if(isWhite) circle.setFillColor(sf::Color::White);
+	if (isWhite) circle.setFillColor(sf::Color::White);
 	else circle.setFillColor(color);
 	circle.setPosition(0, 0);
 	window.draw(circle);
-	
+
 }

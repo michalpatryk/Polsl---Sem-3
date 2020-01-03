@@ -62,23 +62,23 @@ void Rook::createPossibleMoveTableMV()
 	int y = this->coord.y - 1;
 	int checksum = -2;
 	for (int i = x; i < 8; i++) {//go through horizontal -->
-		checksum += costTable[y][i];
+		checksum += costTableMV[y][i];
 		if (checksum < 2) possibleMoveTableMV[y][i] = true;
 	}
 	checksum = -2;
 	for (int i = x; i >= 0; i--) {//go through horizontal <--
-		checksum += costTable[y][i];
+		checksum += costTableMV[y][i];
 		if (checksum < 2) possibleMoveTableMV[y][i] = true;
 	}
 	checksum = -2;
 
 	for (int i = y; i < 8; i++) {//go through horizontal down
-		checksum += costTable[i][x];
+		checksum += costTableMV[i][x];
 		if (checksum < 2) possibleMoveTableMV[i][x] = true;
 	}
 	checksum = -2;
 	for (int i = y; i >= 0; i--) {//go through horizontal up
-		checksum += costTable[i][x];
+		checksum += costTableMV[i][x];
 		if (checksum < 2) possibleMoveTableMV[i][x] = true;
 	}
 	possibleMoveTableMV[y][x] = false;

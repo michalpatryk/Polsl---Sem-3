@@ -99,11 +99,11 @@ void Board::drawPieces(sf::RenderWindow & window)
 					priority = true;
 					priorityX = i; prioriryY = j;
 				}
-				else pieces[i][j]->draw(window);
+				else pieces[i][j]->drawMV(window);
 			}
 		}
 	}
-	if (priority == true) pieces[priorityX][prioriryY]->draw(window);
+	if (priority == true) pieces[priorityX][prioriryY]->drawMV(window);
 }
 
 void Board::move(int initX, int initY)

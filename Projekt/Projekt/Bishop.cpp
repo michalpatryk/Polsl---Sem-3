@@ -68,23 +68,23 @@ void Bishop::createPossibleMoveTableMV()
 
 	for (int i = x, j = y; i < 8 && j < 8; i++, j++) {
 
-		checksum += costTable[j][i];
+		checksum += costTableMV[j][i];
 		if (checksum < 2) possibleMoveTableMV[j][i] = true;
 	}
 	checksum = -2;
 	for (int i = x, j = y; i >= 0 && j < 8; i--, j++) {
-		checksum += costTable[j][i];
+		checksum += costTableMV[j][i];
 		if (checksum < 2) possibleMoveTableMV[j][i] = true;
 	}
 
 	checksum = -2;
 	for (int i = x, j = y; i < 8 && j >= 0; i++, j--) {
-		checksum += costTable[j][i];
+		checksum += costTableMV[j][i];
 		if (checksum < 2) possibleMoveTableMV[j][i] = true;
 	}
 	checksum = -2;
 	for (int i = x, j = y; i >= 0 && j >= 0; i--, j--) {
-		checksum += costTable[j][i];
+		checksum += costTableMV[j][i];
 		if (checksum < 2) possibleMoveTableMV[j][i] = true;
 	}
 	possibleMoveTableMV[y][x] = false;
